@@ -7,3 +7,8 @@
   margin: 15px auto;
   padding: 25px;
 }
+
+.SideBar fieldset {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
