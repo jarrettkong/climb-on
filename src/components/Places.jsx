@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
-import Sidebar from './Sidebar';
-import Place from './Place';
+import Sidebar from './SideBar.jsx';
+import Place from './Place.jsx';
+
 import './Places.css';
 
 class Places extends Component {
-  // constructor(props) {
+
+  // constructor() {
   //   super();
   // }
 
   render() {
     return (
-      <section class="bottom-container">
+      <section className="Places-bottom-container">
         <Sidebar />
-        {
-          this.props.places.map( (place, index) => {
+        <div>
+
+        <Place />
+        <Place />
+        <Place />
+        <Place />
+        </div>
+        {/* {
+          this.props.places.map( (place) => {
             return (
               <Place
                 closestTown = {place.closestTown}
@@ -22,7 +31,7 @@ class Places extends Component {
                 photo = {place.photo} />
             )
           })
-        }
+        } */}
       </section>
     )
   }
