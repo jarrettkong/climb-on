@@ -1,9 +1,10 @@
 import './Sidebar.css';
+import React, { Component } from 'react';
 
 class Sidebar extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   render() {
     return (
