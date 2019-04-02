@@ -6,7 +6,6 @@ import './Places.css';
 class Places extends Component {
   constructor(props) {
     super();
-    this.state = {};
   }
 
   render() {
@@ -18,8 +17,9 @@ class Places extends Component {
             return (
               <Place
                 closestTown = {place.closestTown}
-                climbingId = {place.climbingId}
-                routes = {place.routes} />
+                key = {place.climbingId}
+                routes = {place.routes}
+                photo = {place.photo} />
             )
           });
         }
