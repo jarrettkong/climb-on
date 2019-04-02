@@ -19,13 +19,15 @@ class Place extends Component {
           <img className="Place-photo" src={photo} alt="location photo"/>
         </section>
         <h3 className="Place-routes-label">Routes</h3>
-        <hr className="Place-divider"/>
+        {/* <hr className="Place-divider"/> */}
         <section className="Place-routes-container">
           {/* {
             routes.map(route =>{
               return <Route routeName={route.routeName}/>
             })
           } */}
+            <Route routeName="Louise" area="Brown Cloud Crags" difficultyLevel="5.8" type={["sport"]}/>
+            <Route routeName="Louise" area="Brown Cloud Crags" difficultyLevel="5.8" type={["sport"]}/>
             <Route routeName="Louise" area="Brown Cloud Crags" difficultyLevel="5.8" type={["sport"]}/>
             <Route routeName="Thelma" area="Brown Cloud Crags" difficultyLevel="5.7" type={["sport"]}/>
             <Route routeName="Mister Squirrel Places a Nut" area="Overhang Area" difficultyLevel="5.11c" type={["sport", "top-rope"]}/>
