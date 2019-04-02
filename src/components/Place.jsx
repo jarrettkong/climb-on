@@ -8,19 +8,19 @@ class Place extends Component {
   render() {
     const {area, closestTown, routes, photo} = this.props;
     return (
-      <article className="Place">
-        <section className="place-header-container">
-          <div className="place-info">
-            <h3 className="place-name">Golden Cliffs</h3>
-            {/* <h3 className="place-name">{area}</h3> */}
-            <h4 className="place-nearest-town">Closest City: Golden</h4>
-            {/* <h4 className="place-nearest-town">{closestTown}</h4> */}
+      <article className="Place module">
+        <section className="Place-header-container">
+          <div className="Place-info">
+            <h3 className="Place-name">Golden Cliffs</h3>
+            {/* <h3 className="Place-name">{area}</h3> */}
+            <h4 className="Place-nearest-town">Closest City: Golden</h4>
+            {/* <h4 className="Place-nearest-town">{closestTown}</h4> */}
           </div>
-          <img className="place-photo" src={photo} alt="location photo"/>
+          <img className="Place-photo" src={photo} alt="location photo"/>
         </section>
-        <h3 className="place-routes-label">Routes</h3>
-        <hr className="place-divider"/>
-        <section className="place-routes-container">
+        <h3 className="Place-routes-label">Routes</h3>
+        <hr className="Place-divider"/>
+        <section className="Place-routes-container">
           {/* {
             routes.map(route =>{
               return <Route routeName={route.routeName}/>

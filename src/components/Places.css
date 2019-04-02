@@ -1,6 +1,5 @@
 .Places-bottom-container {
-	background-color: pink;
 	display: grid;
 	grid-template-columns: 25% 75%;
-  border: 1px solid red;
+	border: 1px solid red;
 }

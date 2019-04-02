@@ -1,6 +1,5 @@
 .Route {
-  border: 1px solid black;
-  margin: 15px 0;
+  /* border: 1px solid black; */
   padding: 15px;
 }
 
@@ -19,4 +18,8 @@
 
 .route-info-container > * {
   margin: 0;
+}
+
+.route-type {
+  text-transform: capitalize;
 }

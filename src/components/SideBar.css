@@ -1,4 +1,5 @@
 .SideBar {
   grid-column-start: 1;
   grid-column-end: 2;
+  border: 1px solid red;
 }
