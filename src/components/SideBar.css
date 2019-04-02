@@ -1,4 +1,6 @@
 .SideBar {
-  grid-column-start: 1;
   grid-column-end: 2;
+  grid-column-start: 1;
+  margin: 15px auto;
+  padding: 25px;
 }
