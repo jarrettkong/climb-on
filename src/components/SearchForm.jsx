@@ -11,11 +11,13 @@ class SearchForm extends Component {
 
  render() {
   return (
-    <form>
+   <div className="header">
+    <form >
       <input className="search-bar" type="text" name="search" autoComplete="on" placeHolder="Search" />
       <i role="button" class="fas fa-search thesearch"></i>
       {/* make a button */}
     </form>
+   </div>
   )
  }
 }
