@@ -23,11 +23,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Climb On</h1>
-     
-        <form>
-          <input className="search-bar" type="text" name="search" autoComplete="on" placeHolder="Search"/>
-          <i role="button" class="fas fa-search thesearch"></i>
-        </form>
         {/* <Header /> */}
         {/* <SearchForm /> */}
         {/* <Place /> */}
