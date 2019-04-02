@@ -1,4 +1,4 @@
-import './Sidebar.css';
+import './SideBar.css';
 import React, { Component } from 'react';
 
 class Sidebar extends Component {
@@ -8,7 +8,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <aside className='Sidebar'>
+      <aside className='SideBar'>
         <fieldset>
           <legend>Sort:</legend>
           <select id="sort">

@@ -1,35 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Header from './Header'
-// import Place from './Place'
-// import SideBar from './SideBar'
-// import Route from './Route'
-// import SearchFrom from './components/SearchForm'
+import Places from './components/Places.jsx'
+import SearchForm from './components/SearchForm.jsx'
+import Footer from './components/Footer.jsx'
 
 
 class App extends Component {
-  // constructor(){
-  //   super() {
 
-  //     this.state = {
+  constructor(){
+    super() 
 
-  //     }
-  //   }
+    this.state = {
+      results: []
+    }
+  }
   
   
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Climb On</h1>
-        {/* <Header /> */}
-        {/* <SearchForm /> */}
-        {/* <Place /> */}
-        {/* <Route /> */}
-        {/* <SideBar /> */}
-        {/* <Footer /> */}
+        <header>
+          <SearchForm />
         </header>
+        <Places />
+        {/* <Footer /> */}
       </div>
     );
   }
