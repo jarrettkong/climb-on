@@ -1,18 +1,11 @@
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  max-width: 1280px;
+.module {
+  border: 1px solid #d8d9db;
+  border-radius: 5px;
+  box-shadow: 0 0 1px lightgrey;
 }
 
 .Place {
   margin: 15px auto;
-  border: 1px solid black;
   max-width: 750px;
   padding: 25px;
   text-align: left;
@@ -22,7 +15,7 @@ body {
   margin: 0;
 }
 
-.place-header-container {
+.Place-header-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,7 +23,7 @@ body {
   margin-bottom: 15px;
 }
 
-.place-info {
+.Place-info {
   flex: 3;
   height: 150px;
   display: flex;
@@ -38,34 +31,41 @@ body {
   justify-content: flex-start;
 }
 
-.place-name {
+.Place-name {
   font-size: 35px;
   margin: 0;
   font-weight: 500;
 }
 
-.place-nearest-town {
+.Place-nearest-town {
   margin: 0;
   font-weight: 500;
 }
 
-.place-photo {
+.Place-photo {
   flex: 2;
   border: 1px solid black;
   height: 150px;
 }
 
-.place-routes-label {
+.Place-routes-label {
   margin: 0;
   font-weight: 500;
   font-size: 25px;
 }
 
-.place-divider {
-  border: 1px solid black;
-  margin-bottom: 15px;
+.Place-divider {
+  border-style: none;
+  border-bottom: 1px solid #d8d9db;
+  margin: 5px 0 10px 0;
 }
 
-.place-routes-container {
-  /* border: 1px solid black; */
+.Place-routes-container {
+  border: 1px solid white;
+  box-shadow: inset 0 0 3px lightgrey;
+  padding: 10px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
 }

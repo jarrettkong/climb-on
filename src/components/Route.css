@@ -1,7 +1,10 @@
 .Route {
-  border: 1px solid black;
-  margin: 15px 0;
   padding: 15px;
+  border: 1px solid #d8d9db;
+  border-radius: 3px;
+  margin-right: 10px;
+  width: 200px;
+  height: 200px;
 }
 
 .route-name {
@@ -10,13 +13,16 @@
 }
 
 .route-info-container {
-  border: 1px solid red;
   padding: 15px;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
+  /* border: 1px solid red; */
 }
 
 .route-info-container > * {
   margin: 0;
+}
+
+.route-type {
+  text-transform: capitalize;
 }
