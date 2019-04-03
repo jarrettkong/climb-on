@@ -384,15 +384,4 @@ const routes = [
     "type": ["sport", "top-rope"] },
 ];
 
-console.log(JSON.parse(climbingPlaces));
-
-// climbingPlaces.map( currentPlace => {
-//   let newPlace = {};
-//   newPlace.place = currentPlace.place;
-//   newPlace.closestTown = currentPlace.closestTown;
-//   newPlace.climbingId = currentPlace.climbingId;
-//   newPlace.routes = routes.filter( route => {
-//     return route.climbingPlaceId === newPlace.climbingId
-//   });
-//   return newPlace;
-// });
+export {climbingPlaces, routes};
