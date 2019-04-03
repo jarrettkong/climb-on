@@ -7,22 +7,25 @@
   height: 200px;
 }
 
-.route-name {
+.Route-name {
   margin: 0 0 15px 0; 
   font-size: 20px;
 }
 
-.route-info-container {
+.Route-info-container {
   padding: 15px;
   display: flex;
   justify-content: space-around;
-  /* border: 1px solid red; */
 }
 
-.route-info-container > * {
+.Route-info-container > * {
   margin: 0;
 }
 
-.route-type {
+.Route-type {
   text-transform: capitalize;
+}
+
+.Route-favorited {
+  color: red;
 }

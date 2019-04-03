@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Route should render correctly with all of the information passed 1`] = `
+<section
+  className="Route"
+>
+  <h4
+    className="Route-name"
+  >
+    Louise
+  </h4>
+  <div
+    className="Route-info-container"
+  >
+    <h5
+      className="Route-area"
+    >
+      Area: 
+      Brown Cloud Crags
+    </h5>
+    <h5
+      className="Route-difficulty"
+    >
+      Difficulty: 
+      5.8
+    </h5>
+    <h5
+      className="Route-type"
+    >
+      Type: 
+      sport
+    </h5>
+  </div>
+  <button
+    className="Route-favorite-button"
+    onClick={[Function]}
+  >
+    Favorite
+  </button>
+</section>
+`;
