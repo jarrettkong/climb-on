@@ -5,6 +5,7 @@ import Place from './Place.jsx';
 import './Places.css';
 
 const Places = (props) => {
+  console.log(props.places);
   return (
     <section className="Places-bottom-container">
       <Sidebar />

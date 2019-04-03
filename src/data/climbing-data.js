@@ -21,13 +21,13 @@ const climbingPlaces = [
 		"closestTown": "Boulder, Colorado", 
 		"climbingId": 7 },
 	{	"place": "Greyrock",
-		"closetTown": "Fort Collins, Colorado",
+		"closestTown": "Fort Collins, Colorado",
 		"climbingId": 8 },
 	{	"place": "South Platte Domes",
-		"closetTown": "Sedalia, Colorado",
+		"closestTown": "Sedalia, Colorado",
 		"climbingId": 9 },
 	{	"place": "Rampart Range",
-		"closetTown": "Sedalia, Colorado",
+		"closestTown": "Sedalia, Colorado",
 		"climbingId": 10 }
 ];
 
