@@ -1,15 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import SearchForm from '../components/SearchForm';
+import { shallow } from 'enzyme';
 
-const mockSubmit = jest.fn();
+const mock_handleSubmit = jest.fn();
 
 describe('SearchForm', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <SearchForm submitSearch={mockSubmit}/>
+      <SearchForm submitSearch={mock_handleSubmit}/>
     )
   });
 
@@ -23,8 +23,7 @@ describe('SearchForm', () => {
 
   it('should update the state of inputValue on change', () => {
     expect(wrapper.state()).toEqual({ inputValue: '' })
-    wrapper.instance().updateInputValue({ target: {value: 'new value' }});
+    wrapper.instance()._handleChange({ target: {value: 'new value' }});
     expect(wrapper.state()).toEqual({ inputValue: 'new value' })
   });
-
 });

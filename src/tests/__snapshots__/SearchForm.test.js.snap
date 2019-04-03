@@ -5,7 +5,7 @@ exports[`SearchForm should match the snapshot with all the data passed in 1`] = 
   className="SearchForm-header"
 >
   <form
-    onSubmit={[MockFunction]}
+    onSubmit={[Function]}
   >
     <input
       autoComplete="on"
@@ -16,7 +16,7 @@ exports[`SearchForm should match the snapshot with all the data passed in 1`] = 
       type="text"
     />
     <button
-      className="submit-button"
+      className="SearchForm-submit-button"
     >
       <i
         className="fas fa-search"

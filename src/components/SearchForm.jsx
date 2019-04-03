@@ -10,11 +10,11 @@ class SearchForm extends Component {
   };
  }
 
-  updateInputValue = e => {
+  _handleChange = e => {
     this.setState({ inputValue: e.target.value });
   }
 
-  submitSearch = e => {
+  _handleSubmit = e => {
     e.preventDefault();
     this.props.submitSearch(this.state.inputValue);
   }
@@ -22,9 +22,9 @@ class SearchForm extends Component {
  render() {
   return (
    <div className="SearchForm-header">
-    <form onSubmit={this.submitSearch}>
-      <input className="SearchForm-search-bar" type="text" name="search" autoComplete="on" placeholder="Search" onChange={this.updateInputValue}/>
-      <button className="submit-button"><i className="fas fa-search"></i></button>
+    <form onSubmit={this._handleSubmit}>
+      <input className="SearchForm-search-bar" type="text" name="search" autoComplete="on" placeholder="Search" onChange={this._handleChange}/>
+      <button className="SearchForm-submit-button"><i className="fas fa-search"></i></button>
       {/* make a button */}
     </form>
    </div>
