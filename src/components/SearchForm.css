@@ -1,4 +1,4 @@
-.SearchForm, .header {
+.SearchForm-header {
  background-image: url('../images/climbon.jpg');
  background-position: 0 -70px;
  background-size: cover;
@@ -7,7 +7,7 @@
  min-width: 100vh;
 }
 
-.SearchForm, form { 
+form { 
  min-height: 550px; 
  display: flex;
  flex-direction: row;
@@ -17,20 +17,20 @@
  color: rgba(249, 245, 245, 0.851);
 } 
 
-.SearchForm, .search-bar {
+.SearchForm-search-bar {
  height: 2.5rem;
  width: 12.3rem;
- background-color: rgba(255, 255, 255, 0.74); 
+ background-color: rgba(198, 157, 157, 0.968); 
  border-top-left-radius: 5px;
  border-bottom-left-radius: 5px;
  border-style: none;
  border-color: #c3e5fe;
  font-size: 20px;
- color: rgb(15, 15, 16);
+ color: rgb(251, 251, 252);
  padding: 4px 0px 0px 11px;
 }
 
-.SearchForm, .fa-search {
+button {
  background-color: #54494B;
  color: #ffffff;
  margin-left: -4px;
@@ -40,4 +40,5 @@
  padding: 5px 7px 6px 9px;
  font-size: 27px;
  cursor: pointer; 
+ border: none;
 }
