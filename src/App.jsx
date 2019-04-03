@@ -21,17 +21,24 @@ class App extends Component {
     super() 
 
     this.state = {
+      places: places,
       results: places
     }
   }
   
+  submitSearch = query => {
+    const results = this.state.places.filter(r => {
+      return r.place.toLowerCase() === query.toLowerCase();
+    })
+    this.setState({ results: results });
+  }
   
 
   render() {
     return (
       <div className="App">
         <header>
-          <SearchForm />
+          <SearchForm submitSearch={this.submitSearch}/>
         </header>
         <Places places={this.state.results}/>
         {/* <Footer /> */}
