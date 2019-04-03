@@ -14,7 +14,7 @@ class SearchForm extends Component {
    <div className="SearchForm-header">
     <form >
       <input className="SearchForm-search-bar" type="text" name="search" autoComplete="on" placeholder="Search" />
-      <button><i className="fas fa-search"></i></button>
+      <button className="submit-button"><i className="fas fa-search"></i></button>
       {/* make a button */}
     </form>
    </div>
