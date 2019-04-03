@@ -25,3 +25,7 @@
 .Route-type {
   text-transform: capitalize;
 }
+
+.Route-favorited {
+  color: red;
+}
