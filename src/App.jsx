@@ -7,7 +7,6 @@ import {climbingPlaces, routes} from './data/climbing-data.js';
 
 let places = climbingPlaces.map( currentPlace => {
   let newPlace = {};
-  console.log(currentPlace.closestTown)
   newPlace.place = currentPlace.place;
   newPlace.closestTown = currentPlace.closestTown;
   newPlace.climbingId = currentPlace.climbingId;
