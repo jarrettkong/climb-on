@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 import './Route.css';
 
 class Route extends Component {
+  constructor() {
+    super();
+    this.state = {
+      favorite: false
+    }
+  }
+
   render() {
     const { area, routeName, difficultyLevel, type } = this.props;
     return (
