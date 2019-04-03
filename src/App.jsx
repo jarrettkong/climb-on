@@ -11,7 +11,7 @@ let places = climbingPlaces.map( currentPlace => {
   newPlace.closestTown = currentPlace.closestTown;
   newPlace.climbingId = currentPlace.climbingId;
   newPlace.routes = routes.filter( route => {
-    return route.climbingPlaceId === newPlace.climbingId
+    return route.climbingPlaceId === newPlace.climbingId;
   });
   return newPlace;
 });

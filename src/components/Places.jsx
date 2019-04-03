@@ -5,27 +5,23 @@ import Place from './Place.jsx';
 import './Places.css';
 
 const Places = (props) => {
-  console.log(props.places);
   return (
     <section className="Places-bottom-container">
       <Sidebar />
       <div>
         {
-          props.places.map((currentPlace) => {
+          props.places.map((currentPlace, index) => {
             return ( 
               <Place
+                key={index}
                 place={currentPlace.place}
                 closestTown={currentPlace.closestTown}
-                key={currentPlace.climbingId}
+                climbingId={currentPlace.climbingId}
                 routes={currentPlace.routes}
               />
             )
-          });
+          })
         }
-      <Place />
-      <Place />
-      <Place />
-      <Place />
       </div>
       {/* {
         this.props.places.map( (place) => {
