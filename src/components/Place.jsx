@@ -21,7 +21,7 @@ class Place extends Component {
             {/* <h3 className="Place-name">{area}</h3> */}
             <h4 className="Place-nearest-town">Closest City: {closestTown}</h4>
           </div>
-          {/*<img className="Place-photo" src={photo} alt="location photo"/>*/}
+          {/* <img className="Place-photo" src={photo} alt="location photo"/> */}
         </section>
         <h3 className="Place-routes-label">Routes</h3>
         {/* <hr className="Place-divider"/> */}
