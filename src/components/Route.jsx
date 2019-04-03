@@ -14,13 +14,13 @@ class Route extends Component {
     const { area, routeName, difficultyLevel, type } = this.props;
     return (
       <section className="Route">
-        <h4 className="route-name">{routeName}</h4>
-        <div className="route-info-container">
-        <h5 className="route-area">Area: {area}</h5>
-        <h5 className="route-difficulty">Difficulty: {difficultyLevel}</h5>
-        <h5 className="route-type">Type: {type.join(', ')}</h5>
+        <h4 className="Route-name">{routeName}</h4>
+        <div className="Route-info-container">
+        <h5 className="Route-area">Area: {area}</h5>
+        <h5 className="Route-difficulty">Difficulty: {difficultyLevel}</h5>
+        <h5 className="Route-type">Type: {type.join(', ')}</h5>
         </div>
-        <button className="route-favorite-button">Favorite</button>
+        <button className="Route-favorite-button">Favorite</button>
       </section>
     )
   }
