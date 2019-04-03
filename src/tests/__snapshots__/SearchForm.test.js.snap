@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm should match the snapshot with all the data passed in 1`] = `
+<div
+  className="SearchForm-header"
+>
+  <form
+    onSubmit={[MockFunction]}
+  >
+    <input
+      autoComplete="on"
+      className="SearchForm-search-bar"
+      name="search"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+    />
+    <button
+      className="submit-button"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </button>
+  </form>
+</div>
+`;
