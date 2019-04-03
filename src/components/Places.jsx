@@ -4,37 +4,43 @@ import Place from './Place.jsx';
 
 import './Places.css';
 
-class Places extends Component {
-
-  // constructor() {
-  //   super();
-  // }
-
-  render() {
-    return (
-      <section className="Places-bottom-container">
-        <Sidebar />
-        <div>
-
-        <Place />
-        <Place />
-        <Place />
-        <Place />
-        </div>
-        {/* {
-          this.props.places.map( (place) => {
-            return (
+const Places = (props) => {
+  console.log(props.places);
+  return (
+    <section className="Places-bottom-container">
+      <Sidebar />
+      <div>
+        {
+          props.places.map((currentPlace) => {
+            return ( 
               <Place
-                closestTown = {place.closestTown}
-                key = {place.climbingId}
-                routes = {place.routes}
-                photo = {place.photo} />
+                place={currentPlace.place}
+                closestTown={currentPlace.closestTown}
+                key={currentPlace.climbingId}
+                routes={currentPlace.routes}
+              />
             )
-          })
-        } */}
-      </section>
-    )
-  }
+          });
+        }
+      <Place />
+      <Place />
+      <Place />
+      <Place />
+      </div>
+      {/* {
+        this.props.places.map( (place) => {
+          return (
+            <Place
+              closestTown = {place.closestTown}
+              key = {place.climbingId}
+              routes = {place.routes}
+              photo = {place.photo} />
+          )
+        })
+      } */}
+    </section>
+  )
 }
+
 
 export default Places;
