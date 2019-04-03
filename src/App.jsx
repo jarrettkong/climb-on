@@ -5,7 +5,7 @@ import SearchForm from './components/SearchForm.jsx';
 import Footer from './components/Footer.jsx';
 import {climbingPlaces, routes} from './data/climbing-data.js';
 
-let result = climbingPlaces.map( currentPlace => {
+let places = climbingPlaces.map( currentPlace => {
   let newPlace = {};
   newPlace.place = currentPlace.place;
   newPlace.closestTown = currentPlace.closestTown;
@@ -22,7 +22,7 @@ class App extends Component {
     super() 
 
     this.state = {
-      results: result
+      results: places
     }
   }
   
@@ -34,7 +34,7 @@ class App extends Component {
         <header>
           <SearchForm />
         </header>
-        <Places />
+        <Places places={this.state.results}/>
         {/* <Footer /> */}
       </div>
     );
