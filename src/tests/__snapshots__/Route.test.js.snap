@@ -31,11 +31,9 @@ exports[`Route should render correctly with all of the information passed 1`] = 
       sport
     </h5>
   </div>
-  <button
-    className="Route-favorite-button"
+  <i
+    className="fas fa-heart Route-favorite-button"
     onClick={[Function]}
-  >
-    Favorite
-  </button>
+  />
 </section>
 `;

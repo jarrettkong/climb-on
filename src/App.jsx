@@ -15,6 +15,7 @@ let places = climbingPlaces.map( currentPlace => {
   });
   return newPlace;
 });
+
 class App extends Component {
 
   constructor(){
