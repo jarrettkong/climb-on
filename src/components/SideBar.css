@@ -1,15 +1,15 @@
 .SideBar {
   border-radius: 5px;
-  border: 1px solid #d8d9db;
+  border: 2px solid #65655E;
   box-shadow: 0 0 1px lightgrey;
   grid-column-end: 2;
   grid-column-start: 1;
-  margin: 15px auto;
+  margin: 15px auto 15px 5px;
   padding: 25px;
   width: 100%;
 }
 
 .SideBar fieldset {
-  border: 1px solid #000;
+  border: 1px solid #AAAAAA;
   border-radius: 5px;
 }
