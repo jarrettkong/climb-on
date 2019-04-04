@@ -13,8 +13,8 @@ class App extends Component {
     super() 
 
     this.state = {
-      places: [],
-      routes: [],
+      places: null,
+      routes: null,
       results: []
     }
   }
@@ -27,7 +27,9 @@ class App extends Component {
     await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/climbingPlaces')
     .then(res => res.json())
     .then(json => this.setState({ places: json.climbingPlaces }))
+  }
 
+  submitSearch = query => {
     this.setState({ results: this.state.places.map( currentPlace => { 
         currentPlace.routes = this.state.routes.filter( route => {
           return route.climbingPlaceId === currentPlace.climbingId;
@@ -36,14 +38,6 @@ class App extends Component {
       })
     })
 
-    console.log(this.state.results);
-
-  }
-
-  submitSearch = query => {
-    // if(query === '') {
-    //   return;
-    // }
     const results = this.state.places.filter(r => {
       return r.place.toLowerCase().includes(query.toLowerCase());
     })
@@ -52,17 +46,12 @@ class App extends Component {
   
 
   render() {
-    let places;
-    if(this.state.results) {
-      places = <Places places={this.state.results} />
-    }
-
     return (
       <div className="App">
         <header>
         <SearchForm submitSearch={this.submitSearch}/>
         </header>
-        {places}
+        <Places places={this.state.results} />
         {/* <Footer /> */}
       </div>
     );
