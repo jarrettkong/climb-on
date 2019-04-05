@@ -3,9 +3,6 @@ import './App.css';
 import Places from './components/Places.jsx';
 import SearchForm from './components/SearchForm.jsx';
 import Footer from './components/Footer.jsx';
-import {climbingPlaces, routes} from './data/climbing-data.js';
-
-
 
 class App extends Component {
 
@@ -20,6 +17,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+
     await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/routes')
     .then(res => res.json())
     .then(json => this.setState({ routesData: json.routes }))
@@ -30,18 +28,38 @@ class App extends Component {
     .then(json => this.setState({ placesData: json.climbingPlaces }))
     .catch(error => console.log(error));
 
-    this.setState({ results: this.state.placesData.map( place => { 
-        place.routes = this.state.routesData.filter( route => {
-          return route.climbingPlaceId === place.climbingId;
-        });
-        return place;
+    //promise.all || promise.finally
+
+    // this.setState({ results: this.mergeData() })
+    const combinedData = this.state.placesData.map( place => { 
+      place.routes = this.state.routesData.filter( route => {
+        return route.climbingPlaceId === place.climbingId;
       })
+      return place;
     })
+
+    this.setState({ results: combinedData })
+  }
+
+  sortByDifficulty(routes) {
+    routes.sort((a, b) => {
+      const first = parseInt(a.difficultyLevel.slice(2)
+          .replace('a','1')
+          .replace('b','2')
+          .replace('c','3')
+          .replace('d','4'));
+      const second = parseInt(b.difficultyLevel.slice(2)
+          .replace('a','1')
+          .replace('b','2')
+          .replace('c','3')
+          .replace('d','4'));
+      return first - second;
+    });
   }
 
   submitSearch = query => {
-
-    const results = this.state.places.filter(r => {
+    console.log(this.state.placesData);
+    const results = this.state.placesData.filter(r => {
       return r.place.toLowerCase().includes(query.toLowerCase());
     })
     this.setState({ results: results });
