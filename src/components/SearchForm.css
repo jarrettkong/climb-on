@@ -28,6 +28,7 @@ form {
  font-size: 20px;
  color: rgb(251, 251, 252);
  padding: 4px 0px 0px 11px;
+ opacity: 0.98;
 }
 
 .SearchForm-submit-button {

@@ -1,5 +1,5 @@
 .module {
-  border: 1px solid #d8d9db;
+  border: 2px solid #65655E;
   border-radius: 5px;
   box-shadow: 0 0 1px lightgrey;
 }
@@ -61,7 +61,7 @@
 }
 
 .Place-routes-container {
-  border: 1px solid white;
+  border: 1px solid #65655E;
   box-shadow: 0 0 2px lightgrey inset;
   padding: 10px;
   border-radius: 3px;
