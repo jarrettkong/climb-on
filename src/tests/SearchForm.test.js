@@ -26,4 +26,6 @@ describe('SearchForm', () => {
     wrapper.instance()._handleChange({ target: {value: 'new value' }});
     expect(wrapper.state()).toEqual({ inputValue: 'new value' })
   });
+
+  // Simulate Click on search button
 });
