@@ -30,8 +30,8 @@ class App extends Component {
     .then(json => this.setState({ placesData: json.climbingPlaces }))
     .catch(error => console.log(error));
 
-    this.setState({ results: this.state.places.map( place => { 
-        place.routes = this.state.routes.filter( route => {
+    this.setState({ results: this.state.placesData.map( place => { 
+        place.routes = this.state.routesData.filter( route => {
           return route.climbingPlaceId === place.climbingId;
         });
         return place;
