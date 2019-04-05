@@ -23,20 +23,23 @@ class App extends Component {
     await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/routes')
     .then(res => res.json())
     .then(json => this.setState({ routes: json.routes }))
+    .catch(error => console.log(error));
 
     await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/climbingPlaces')
     .then(res => res.json())
     .then(json => this.setState({ places: json.climbingPlaces }))
+    .catch(error => console.log(error));
+
+    this.setState({ results: this.state.places.map( place => { 
+        place.routes = this.state.routes.filter( route => {
+          return route.climbingPlaceId === place.climbingId;
+        });
+        return place;
+      })
+    })
   }
 
   submitSearch = query => {
-    this.setState({ results: this.state.places.map( currentPlace => { 
-        currentPlace.routes = this.state.routes.filter( route => {
-          return route.climbingPlaceId === currentPlace.climbingId;
-        });
-        return currentPlace;
-      })
-    })
 
     const results = this.state.places.filter(r => {
       return r.place.toLowerCase().includes(query.toLowerCase());
