@@ -13,8 +13,8 @@ class App extends Component {
     super() 
 
     this.state = {
-      places: null,
-      routes: null,
+      placesData: null,
+      routesData: null,
       results: []
     }
   }
@@ -22,21 +22,24 @@ class App extends Component {
   componentDidMount = async () => {
     await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/routes')
     .then(res => res.json())
-    .then(json => this.setState({ routes: json.routes }))
+    .then(json => this.setState({ routesData: json.routes }))
+    .catch(error => console.log(error));
 
     await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/climbingPlaces')
     .then(res => res.json())
-    .then(json => this.setState({ places: json.climbingPlaces }))
+    .then(json => this.setState({ placesData: json.climbingPlaces }))
+    .catch(error => console.log(error));
+
+    this.setState({ results: this.state.placesData.map( place => { 
+        place.routes = this.state.routesData.filter( route => {
+          return route.climbingPlaceId === place.climbingId;
+        });
+        return place;
+      })
+    })
   }
 
   submitSearch = query => {
-    this.setState({ results: this.state.places.map( currentPlace => { 
-        currentPlace.routes = this.state.routes.filter( route => {
-          return route.climbingPlaceId === currentPlace.climbingId;
-        });
-        return currentPlace;
-      })
-    })
 
     const results = this.state.places.filter(r => {
       return r.place.toLowerCase().includes(query.toLowerCase());
