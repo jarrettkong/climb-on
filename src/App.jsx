@@ -31,6 +31,7 @@ class App extends Component {
       const combinedData = this.mergeData(data[0].routes, data[1].climbingPlaces)
       this.setState({combinedData: combinedData})
     })
+    
   }
 
   mergeData = (routes, places) => {
