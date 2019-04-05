@@ -6,7 +6,7 @@ import './Places.css';
 
 const Places = (props) => {
   return (
-    <section className="Places-bottom-container">
+    <section className="Places">
       <Sidebar />
       <div>
         {

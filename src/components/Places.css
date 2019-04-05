@@ -1,4 +1,6 @@
-.Places-bottom-container {
+.Places {
+	max-width: 1200px;
+	margin: auto;
 	display: grid;
 	grid-template-columns: 25% 75%;
 	border: 1px solid #65655E;
