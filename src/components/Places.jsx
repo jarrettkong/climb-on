@@ -23,17 +23,6 @@ const Places = (props) => {
           })
         }
       </div>
-      {/* {
-        this.props.places.map( (place) => {
-          return (
-            <Place
-              closestTown = {place.closestTown}
-              key = {place.climbingId}
-              routes = {place.routes}
-              photo = {place.photo} />
-          )
-        })
-      } */}
     </section>
   )
 }
