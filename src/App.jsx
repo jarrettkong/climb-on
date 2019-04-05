@@ -10,38 +10,41 @@ class App extends Component {
     super() 
 
     this.state = {
-      placesData: null,
-      routesData: null,
+      combinedData: null,
       results: []
     }
   }
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
 
-    await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/routes')
+    const routePromise = fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/routes')
     .then(res => res.json())
-    .then(json => this.setState({ routesData: json.routes }))
-    .catch(error => console.log(error));
-
-    await fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/climbingPlaces')
+    
+    const placesPromise = fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/climbingPlaces')
     .then(res => res.json())
-    .then(json => this.setState({ placesData: json.climbingPlaces }))
-    .catch(error => console.log(error));
-
-    //promise.all || promise.finally
-
-    // this.setState({ results: this.mergeData() })
-    const combinedData = this.state.placesData.map( place => { 
-      place.routes = this.state.routesData.filter( route => {
-        return route.climbingPlaceId === place.climbingId;
-      })
-      return place;
+    
+    
+    Promise.all([
+      routePromise.catch(error => console.log(error)),
+      placesPromise.catch(error => console.log(error))
+    ]).then(data => { 
+      const combinedData = this.mergeData(data[0].routes, data[1].climbingPlaces)
+      this.setState({combinedData: combinedData})
     })
-
-    this.setState({ results: combinedData })
   }
 
-  sortByDifficulty(routes) {
+  mergeData = (routes, places) => {
+    return places.map( place => {
+      let newPlace = Object.assign({}, place)
+      newPlace.routes = routes.filter( route => {
+        return route.climbingPlaceId === place.climbingId;
+      })
+      this.sortByDifficulty(newPlace.routes);
+      return newPlace;
+    })
+  }
+
+  sortByDifficulty = routes => {
     routes.sort((a, b) => {
       const first = parseInt(a.difficultyLevel.slice(2)
           .replace('a','1')
@@ -58,8 +61,8 @@ class App extends Component {
   }
 
   submitSearch = query => {
-    console.log(this.state.placesData);
-    const results = this.state.placesData.filter(r => {
+    // console.log(this.state.placesData);
+    const results = this.state.combinedData.filter(r => {
       return r.place.toLowerCase().includes(query.toLowerCase());
     })
     this.setState({ results: results });
