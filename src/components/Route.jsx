@@ -28,8 +28,6 @@ class Route extends Component {
   }
 
   render() {
-    // TODO refactor
-    let favButton = this.state.favorite ? <i className="fas fa-heart Route-favorite-button Route-favorited" onClick={this._handleFavoriteClick}></i> : <i className="fas fa-heart Route-favorite-button" onClick={this._handleFavoriteClick}></i>;
     const { area, routeName, difficultyLevel, type } = this.props;
     return (
       <section className="Route">
@@ -39,7 +37,7 @@ class Route extends Component {
         <h5 className="Route-difficulty">Difficulty: {difficultyLevel}</h5>
         <h5 className="Route-type">Type: {type.join(', ')}</h5>
         </div>
-        {favButton}
+        <i className={"fas fa-heart Route-favorite-button" + (this.state.favorite ? ' favorited' : '')} onClick={this._handleFavoriteClick}></i>
       </section>
     )
   }
