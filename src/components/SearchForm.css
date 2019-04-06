@@ -22,7 +22,7 @@
 .SearchForm-search-bar {
  height: 2.5rem;
  width: 12.3rem;
- /* background-color: rgba(198, 157, 157, 0.968);  */
+ background-color: rgba(198, 157, 157, 0.968);  
  border-top-left-radius: 5px;
  border-bottom-left-radius: 5px;
  border-style: none;

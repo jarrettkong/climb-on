@@ -13,7 +13,17 @@ class Route extends Component {
 
   _handleFavoriteClick = () => {
     this.setState({
-      favorite: !this.state.favorite
+      favorite: !this.state.favorite 
+    })   
+  }
+
+  componentDidUpdate = () => {
+    localStorage.setItem(this.props.routeName, JSON.stringify(this.state.favorite))
+  }
+
+  componentDidMount = () => {
+    this.setState({
+      favorite: JSON.parse(localStorage.getItem(this.props.routeName)) || false
     })
   }
 
