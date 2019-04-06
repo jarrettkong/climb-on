@@ -72,12 +72,19 @@ class App extends Component {
   }
 
   filterType = filters => {
-    const results = this.state.results.forEach(result => {
-      result.routes.filter(route => {
-        return route.type.some(type => filters.includes(type))
+    // const results = [] 
+    console.log(this.state.results);
+    this.state.results.forEach(result => {
+      result.routes = result.routes.forEach(route => {
+        if(!route.type.some(type => filters.includes(type))) {
+          result.routes.splice(result.routes.indexOf(route, 1))
+        }
       })
     })
-    console.log(results);
+
+    console.log(this.state.results);
+
+    // this.setState({ results: this.state.results });
   }
 
   render() {
