@@ -70,7 +70,15 @@ class App extends Component {
     })
     this.setState({ results: results });
   }
-  
+
+  filterType = filters => {
+    const results = this.state.results.forEach(result => {
+      result.routes.filter(route => {
+        return route.type.some(type => filters.includes(type))
+      })
+    })
+    console.log(results);
+  }
 
   render() {
     return (
@@ -78,7 +86,7 @@ class App extends Component {
         <header>
         <SearchForm submitSearch={this.submitSearch}/>
         </header>
-        <Places places={this.state.results} />
+        <Places places={this.state.results} filterType={this.filterType} />
         {/* <Footer /> */}
       </div>
     );

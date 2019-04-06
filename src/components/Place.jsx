@@ -23,7 +23,7 @@ class Place extends Component {
           </div>
           {/* <img className="Place-photo" src={photo} alt="location photo"/> */}
         </section>
-        <h3 className="Place-routes-label">Routes</h3>
+        {/* <h3 className="Place-routes-label">Routes</h3> */}
         {/* <hr className="Place-divider"/> */}
         <section className="Place-routes-container">
           {

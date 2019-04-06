@@ -4,27 +4,32 @@ import Place from './Place.jsx';
 
 import './Places.css';
 
-const Places = (props) => {
-  return (
-    <section className="Places">
-      <Sidebar />
-      <div>
-        {
-          props.places.map((currentPlace, index) => {
-            return ( 
-              <Place
-                key={index}
-                place={currentPlace.place}
-                closestTown={currentPlace.closestTown}
-                climbingId={currentPlace.climbingId}
-                routes={currentPlace.routes}
-              />
-            )
-          })
-        }
-      </div>
-    </section>
-  )
+class Places extends Component {
+
+  render() {
+    return (
+      <section className="Places">
+      <h2 className="Places-header">Results</h2>
+        <Sidebar filterType={this.props.filterType}/>
+        <section className="Places-container">
+          {
+            this.props.places.map((currentPlace, index) => {
+              return ( 
+                <Place
+                  key={index}
+                  place={currentPlace.place}
+                  closestTown={currentPlace.closestTown}
+                  climbingId={currentPlace.climbingId}
+                  routes={currentPlace.routes}
+                />
+              )
+            })
+          }
+        </section>
+      </section>
+    )
+  }
+
 }
 
 
