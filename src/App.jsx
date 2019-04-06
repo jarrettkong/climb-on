@@ -64,7 +64,9 @@ class App extends Component {
   submitSearch = query => {
     // console.log(this.state.placesData);
     const results = this.state.combinedData.filter(r => {
-      return r.place.toLowerCase().includes(query.toLowerCase());
+      query = query.toLowerCase()
+      return r.place.toLowerCase().includes(query) ||
+             r.closestTown.toLowerCase().includes(query)
     })
     this.setState({ results: results });
   }
