@@ -16,19 +16,18 @@
  justify-content: center;
  align-items: center;
  font-size: calc(10px + 2vmin); 
- color: rgba(249, 245, 245, 0.851);
+ /* color: rgba(249, 245, 245, 0.851); */
 } 
 
 .SearchForm-search-bar {
  height: 2.5rem;
  width: 12.3rem;
- /* background-color: rgba(198, 157, 157, 0.968);  */
+ background-color: rgba(198, 157, 157, 0.968); 
  border-top-left-radius: 5px;
  border-bottom-left-radius: 5px;
  border-style: none;
  border-color: #c3e5fe;
  font-size: 20px;
- color: rgb(251, 251, 252);
  padding: 4px 0px 0px 11px;
  opacity: 0.98;
 }
