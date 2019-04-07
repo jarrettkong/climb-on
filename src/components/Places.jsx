@@ -7,7 +7,7 @@ import './Places.css';
 const Places = (props) => {
   return (
     <section className="Places">
-      <Sidebar />
+      <Sidebar setTypesState={props.setTypesState} />
       <div>
         {
           props.places.map((currentPlace, index) => {

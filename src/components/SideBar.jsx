@@ -2,9 +2,17 @@ import './SideBar.css';
 import React, { Component } from 'react';
 
 class Sidebar extends Component {
-  // constructor() {
-  //   super();
-  // }
+
+
+  _handleClick = () =>{
+    let checkboxes = [...document.querySelectorAll('.type-check-box')];
+    let climbingTypes = checkboxes.reduce((acc, checkbox) => {
+      acc[checkbox.name] = checkbox.checked;
+      return acc;
+    }, {});
+    this.props.setTypesState(climbingTypes);
+  }
+
 
   render() {
     return (
@@ -16,18 +24,18 @@ class Sidebar extends Component {
               <option>Lowest to Highest</option>
           </select>
         </fieldset>
-        <fieldset>
+        <fieldset className="type-checkboxes">
           <legend>Type:</legend>
           <div className="checkbox-container">
-            <input type="checkbox" id="sport" name="sport" />
+            <input type="checkbox" id="sport" className="type-check-box" name="sport" onClick={this._handleClick} defaultChecked/>
             <label htmlFor="sport">Sport</label>
           </div>
           <div className="checkbox-container">
-            <input type="checkbox" id="top-rope" name="top rope" />
+            <input type="checkbox" id="top-rope" className="type-check-box" name="top-rope" onClick={this._handleClick} defaultChecked/>
             <label htmlFor="top-rope">Top-rope</label>
           </div>
           <div className="checkbox-container">
-            <input type="checkbox" id="trad" name="trad" />
+            <input type="checkbox" id="trad" className="type-check-box" name="trad" onClick={this._handleClick} defaultChecked/>
             <label htmlFor="trad">Trad</label>
           </div>
         </fieldset>
