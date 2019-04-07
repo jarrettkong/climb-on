@@ -71,21 +71,33 @@ class App extends Component {
     this.setState({ results: results });
   }
 
+  // TODO unfilter does not work
   filterType = filters => {
-    const results = this.state.results.forEach(result => {
-      result.routes.filter(route => {
-        return route.type.some(type => filters.includes(type))
+    if(filters.length < 1) {
+      return;
+    }
+    const results = this.state.results.map(r => r);
+    results.forEach(result => {
+      result.routes = result.routes.filter(route => {
+        return route.type.some(type => filters.includes(type));
       })
     })
-    console.log(results);
+    this.setState({ results: results });
   }
 
   render() {
+  //   let places;
+  //   if(this.state.results.lengh > 0) {
+  //     // console.log(true);
+  //     places = <Places places={this.state.results} filterType={this.filterType} />
+  //     console.log(this.state.results);
+  //   }
     return (
       <div className="App">
         <header>
         <SearchForm submitSearch={this.submitSearch}/>
         </header>
+        {/* {places} */}
         <Places places={this.state.results} filterType={this.filterType} />
         {/* <Footer /> */}
       </div>
