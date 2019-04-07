@@ -13,6 +13,7 @@ class App extends Component {
       routes: [],
       places: [],
       results: [],
+      query: '',
       types: {
         'sport': true,
         'trad': true,
@@ -44,6 +45,10 @@ class App extends Component {
     let sortedRoutes = this.sortByDifficulty(this.state.routes);
     let filteredRoutes = this.filterRoutesByType(sortedRoutes);
     let results = this.addRoutesToPlaces(filteredRoutes, this.state.places)
+    if (this.state.query !== '') {
+    results = this.submitSearch(this.state.query, results);
+    }
+    console.log(results);
     if (JSON.stringify(this.state.results) !== JSON.stringify(results)) {
       this.setState({
         results: results
@@ -97,17 +102,21 @@ class App extends Component {
     });
   }
 
-  submitSearch = (query) => {
-    const placesThatMatchQuery = this.state.results.filter(currentPlace => {
+  submitSearch = (query, places) => {
+    const placesThatMatchQuery = places.filter(currentPlace => {
       query = query.toLowerCase();
       return (
         currentPlace.place.toLowerCase().includes(query) ||
         currentPlace.closestTown.toLowerCase().includes(query)
       );
     });
-    this.setState({ results: placesThatMatchQuery });
+  console.log('places that match query', placesThatMatchQuery)
+  return placesThatMatchQuery;
   }
-  
+  setQueryState = query => {
+    this.setState({query: query});
+  }
+
   setTypesState = (typeState) => {
     this.setState({types: typeState});
   }
@@ -116,7 +125,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-        <SearchForm submitSearch={this.submitSearch}/>
+        <SearchForm setQueryState={this.setQueryState}/>
         </header>
         <Places setTypesState={this.setTypesState} places={this.state.results} />
         {/* <Footer /> */}
