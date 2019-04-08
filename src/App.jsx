@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Places from './components/Places.jsx';
 import SearchForm from './components/SearchForm.jsx';
-import Footer from './components/Footer.jsx';
+// import Footer from './components/Footer.jsx';
 
 class App extends Component {
 
@@ -12,9 +12,10 @@ class App extends Component {
     this.state = {
       combinedData: null,
       searchQuery: '',
-      filters: null
-      // results: [],
-      // filteredResults: [],
+      filters: {
+        types: [],
+        difficulties: []
+      }
     }
   }
 
@@ -36,16 +37,15 @@ class App extends Component {
 
   mergeData = (routes, places) => {
     return places.map( place => {
-      let newPlace = Object.assign({}, place)
-      newPlace.routes = routes.filter( route => {
+      place.routes = routes.filter( route => {
         return route.climbingPlaceId === place.climbingId;
       })
-      this.sortByDifficulty(newPlace.routes);
-      return newPlace;
+      this.sortByDifficulty(place.routes);
+      return place;
     })
   }
 
-  sortByDifficulty = routes => {
+  sortByDifficulty = (routes, bool) => {
     routes.sort((a, b) => {
       const first = parseInt(a.difficultyLevel.slice(2)
           .replace('a','1')
@@ -57,7 +57,7 @@ class App extends Component {
           .replace('b','2')
           .replace('c','3')
           .replace('d','4'));
-      return first - second;
+      return bool ? first - second : second - first;
     });
   }
 
@@ -71,37 +71,40 @@ class App extends Component {
       return r.place.toLowerCase().includes(query) ||
              r.closestTown.toLowerCase().includes(query)
     })
+
     return results;
   }
 
-  // TODO unfilter does not work
-  filterResults = (searchResults) => {
-    const results = searchResults.map(r => r);
-    searchResults.forEach(result => {
-      result.routes = result.routes.filter(route => {
-        return route.type.some(type => this.state.filters.types.includes(type));
-      })
+  // TODO cannot select multiple diffiiculties
+  // TODO cannot stack filters between diff and type
+  filterResults = searchResults => {
+    const { types, difficulties } = this.state.filters;
+    return searchResults.map(result => {
+      const newResult = Object.assign({}, result);
+      if(types.length > 0 || difficulties > 0) {
+        newResult.routes = newResult.routes.filter(route => {
+          return route.type.some(type => types.includes(type)) || difficulties.includes(route.difficultyLevel.match(/([5]*[.])?[0-9]+/)[0])
+        })
+      }
+      return newResult;
     })
-    return results;
   }
 
   updateFilters = filters => {
     this.setState({ filters: filters });
   }
-
+  
   render() {
     const searchResults = this.state.combinedData ? this.searchData() : [];
-    const results = this.state.filters ? this.filterResults(searchResults) : searchResults;
+    const results = this.filterResults(searchResults);
 
     return (
       <div className="App">
         <header>
         <SearchForm updateSearch={this.updateSearch}/>
         </header>
-        {/* {places} */}
         {/* // TODO not show on start */}
         <Places places={results} updateFilters={this.updateFilters} />
-        {/* <Places places={results} filterType={this.filterType} /> */}
         {/* <Footer /> */}
       </div>
     );
