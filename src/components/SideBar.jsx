@@ -6,6 +6,10 @@ class Sidebar extends Component {
     super(props);
 
     this.state = {
+      // filters = {
+      //   type:
+      //   difficulty:
+      // }
       typeFilters: []
     }
   }

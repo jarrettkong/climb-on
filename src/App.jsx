@@ -11,7 +11,8 @@ class App extends Component {
 
     this.state = {
       combinedData: null,
-      results: []
+      results: [],
+      filteredResults: [],
     }
   }
 
@@ -23,14 +24,11 @@ class App extends Component {
     const placesPromise = fetch('https://fe-apps.herokuapp.com/api/v1/whateverly/1901/lboyer4/climbingPlaces')
     .then(res => res.json())
     
-    
-    Promise.all([
-      routePromise.catch(error => console.log(error)),
-      placesPromise.catch(error => console.log(error))
-    ]).then(data => { 
+    Promise.all([routePromise, placesPromise])
+    .then(data => { 
       const combinedData = this.mergeData(data[0].routes, data[1].climbingPlaces)
       this.setState({combinedData: combinedData})
-    })
+    }).catch(error => console.log(error))
     
   }
 
@@ -62,7 +60,6 @@ class App extends Component {
   }
 
   submitSearch = query => {
-    // console.log(this.state.placesData);
     const results = this.state.combinedData.filter(r => {
       query = query.toLowerCase()
       return r.place.toLowerCase().includes(query) ||
@@ -71,29 +68,38 @@ class App extends Component {
     this.setState({ results: results });
   }
 
+  // TODO unfilter does not work
   filterType = filters => {
-    // const results = [] 
-    console.log(this.state.results);
-    this.state.results.forEach(result => {
-      result.routes = result.routes.forEach(route => {
-        if(!route.type.some(type => filters.includes(type))) {
-          result.routes.splice(result.routes.indexOf(route, 1))
-        }
+    if(filters.length < 1) {
+      return;
+    }
+    const results = this.state.results.map(r => r);
+    results.forEach(result => {
+      result.routes = result.routes.filter(route => {
+        return route.type.some(type => filters.includes(type));
       })
     })
-
-    console.log(this.state.results);
-
-    // this.setState({ results: this.state.results });
+    this.setState({ results: results });
   }
 
   render() {
+    // TODO not show on start
+  //   let places;
+  //   if(this.state.results.lengh > 0) {
+  //     // console.log(true);
+  //     places = <Places places={this.state.results} filterType={this.filterType} />
+  //     console.log(this.state.results);
+  //   }
+    // ! filter
+    // const results = filterResults(this.state.filters)
     return (
       <div className="App">
         <header>
         <SearchForm submitSearch={this.submitSearch}/>
         </header>
+        {/* {places} */}
         <Places places={this.state.results} filterType={this.filterType} />
+        {/* <Places places={results} filterType={this.filterType} /> */}
         {/* <Footer /> */}
       </div>
     );

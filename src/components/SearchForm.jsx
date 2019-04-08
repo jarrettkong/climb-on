@@ -12,7 +12,7 @@ class SearchForm extends Component {
 
   _handleChange = e => {
     this.setState({ inputValue: e.target.value });
-  }
+  } 
 
   _handleSubmit = e => {
     e.preventDefault();
