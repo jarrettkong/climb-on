@@ -6,27 +6,27 @@ class Sidebar extends Component {
     super(props);
 
     this.state = {
-      // filters = {
-      //   type:
-      //   difficulty:
-      // }
-      typeFilters: []
+      filters: {
+        types: [],
+        difficulties: []
+      }
     }
   }
 
   _handleSubmit = e => {
     e.preventDefault();
-    this.props.filterType(this.state.typeFilters);
+    this.props.updateFilters(this.state.filters);
   }
 
   // TODO should use e.target.value and add value prop to checkbox?
   _handleFilterType = e => {
-    const { typeFilters } = this.state;
+    const filters = this.state.filters;
     if(e.target.checked) { 
-      typeFilters.push(e.target.name);
+      filters.types.push(e.target.name);
     } else {
-      typeFilters.splice(typeFilters.indexOf(e.target.name), 1);
+      filters.types.splice(filters.types.indexOf(e.target.name), 1);
     }
+    this.setState({ filters: filters });
   }
 
   render() {

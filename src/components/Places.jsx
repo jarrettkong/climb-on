@@ -10,7 +10,7 @@ class Places extends Component {
     return (
       <section className="Places">
       <h2 className="Places-header">Results</h2>
-        <Sidebar filterType={this.props.filterType}/>
+        <Sidebar updateFilters={this.props.updateFilters}/>
         <section className="Places-container">
           {
             this.props.places.map((currentPlace, i) => {

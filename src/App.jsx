@@ -11,7 +11,8 @@ class App extends Component {
 
     this.state = {
       combinedData: null,
-      searchQuery: ''
+      searchQuery: '',
+      filters: null
       // results: [],
       // filteredResults: [],
     }
@@ -74,29 +75,23 @@ class App extends Component {
   }
 
   // TODO unfilter does not work
-  filterType = filters => {
-    if(filters.length < 1) {
-      return;
-    }
-    const results = this.state.results.map(r => r);
-    results.forEach(result => {
+  filterResults = (searchResults) => {
+    const results = searchResults.map(r => r);
+    searchResults.forEach(result => {
       result.routes = result.routes.filter(route => {
-        return route.type.some(type => filters.includes(type));
+        return route.type.some(type => this.state.filters.types.includes(type));
       })
     })
-    this.setState({ results: results });
+    return results;
+  }
+
+  updateFilters = filters => {
+    this.setState({ filters: filters });
   }
 
   render() {
-    // TODO not show on start
-  //   let places;
-  //   if(this.state.results.lengh > 0) {
-  //     // console.log(true);
-  //     places = <Places places={this.state.results} filterType={this.filterType} />
-  //     console.log(this.state.results);
-  //   }
-    // ! filter
-    let results = this.state.combinedData ? this.searchData() : [];
+    const searchResults = this.state.combinedData ? this.searchData() : [];
+    const results = this.state.filters ? this.filterResults(searchResults) : searchResults;
 
     return (
       <div className="App">
@@ -104,7 +99,8 @@ class App extends Component {
         <SearchForm updateSearch={this.updateSearch}/>
         </header>
         {/* {places} */}
-        <Places places={results} filterType={this.filterType} />
+        {/* // TODO not show on start */}
+        <Places places={results} updateFilters={this.updateFilters} />
         {/* <Places places={results} filterType={this.filterType} /> */}
         {/* <Footer /> */}
       </div>
