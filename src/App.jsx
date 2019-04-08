@@ -48,7 +48,6 @@ class App extends Component {
     if (this.state.query !== '') {
     results = this.submitSearch(this.state.query, results);
     }
-    console.log(results);
     if (JSON.stringify(this.state.results) !== JSON.stringify(results)) {
       this.setState({
         results: results
@@ -110,7 +109,6 @@ class App extends Component {
         currentPlace.closestTown.toLowerCase().includes(query)
       );
     });
-  console.log('places that match query', placesThatMatchQuery)
   return placesThatMatchQuery;
   }
   setQueryState = query => {
