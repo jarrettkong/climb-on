@@ -13,10 +13,10 @@ class Places extends Component {
         <Sidebar filterType={this.props.filterType}/>
         <section className="Places-container">
           {
-            this.props.places.map((currentPlace, index) => {
+            this.props.places.map((currentPlace, i) => {
               return ( 
                 <Place
-                  key={index}
+                  key={i}
                   place={currentPlace.place}
                   closestTown={currentPlace.closestTown}
                   climbingId={currentPlace.climbingId}

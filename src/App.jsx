@@ -11,8 +11,9 @@ class App extends Component {
 
     this.state = {
       combinedData: null,
-      results: [],
-      filteredResults: [],
+      searchQuery: ''
+      // results: [],
+      // filteredResults: [],
     }
   }
 
@@ -59,13 +60,17 @@ class App extends Component {
     });
   }
 
-  submitSearch = query => {
+  updateSearch = query => {
+    this.setState({ searchQuery: query })
+  }
+
+  searchData = () => {
+    const query = this.state.searchQuery.toLowerCase();
     const results = this.state.combinedData.filter(r => {
-      query = query.toLowerCase()
       return r.place.toLowerCase().includes(query) ||
              r.closestTown.toLowerCase().includes(query)
     })
-    this.setState({ results: results });
+    return results;
   }
 
   // TODO unfilter does not work
@@ -91,14 +96,15 @@ class App extends Component {
   //     console.log(this.state.results);
   //   }
     // ! filter
-    // const results = filterResults(this.state.filters)
+    let results = this.state.combinedData ? this.searchData() : [];
+
     return (
       <div className="App">
         <header>
-        <SearchForm submitSearch={this.submitSearch}/>
+        <SearchForm updateSearch={this.updateSearch}/>
         </header>
         {/* {places} */}
-        <Places places={this.state.results} filterType={this.filterType} />
+        <Places places={results} filterType={this.filterType} />
         {/* <Places places={results} filterType={this.filterType} /> */}
         {/* <Footer /> */}
       </div>
