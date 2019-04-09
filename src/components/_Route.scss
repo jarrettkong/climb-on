@@ -1,25 +1,31 @@
 .Route {
-  padding: 15px;
-  border: 1px solid #AAAAAA;
+  padding-left: 15px;
+  /* border: 1px solid #d8d9db; */
   border-radius: 3px;
-  margin-right: 10px;
-  width: 200px;
-  height: 200px;
+  /* margin-right: 10px; */
+  width: 100%;
+  position: relative;
+  margin: 0 10px 25px 0;
+  /* height: 200px; */
 }
 
 .Route-name {
   margin: 0 0 15px 0; 
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .Route-info-container {
-  padding: 15px;
+  /* padding: 15px; */
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
+
 .Route-info-container > * {
-  margin: 0;
+  font-size: 17px;
+  /* line-height: 25px; */
+  margin: 0 0 5px 25px;
 }
 
 .Route-type {
@@ -28,6 +34,10 @@
 
 .Route-favorite-button {
   cursor: pointer;
+  position: absolute;
+  font-size: 25px;
+  top: 0;
+  right: 0;
 }
 
 .favorited {

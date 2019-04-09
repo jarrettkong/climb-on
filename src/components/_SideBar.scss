@@ -1,15 +1,50 @@
 .SideBar {
   border-radius: 5px;
-  border: 2px solid #65655E;
-  box-shadow: 0 0 1px lightgrey;
+  /* border: 1px solid #d8d9db; */
+  /* box-shadow: 0 0 1px lightgrey; */
   grid-column-end: 2;
   grid-column-start: 1;
-  margin: 15px auto 15px 5px;
-  padding: 25px;
+  padding: 25px 25px 25px 0;
   width: 100%;
 }
 
+.SideBar legend {
+  font-size: 20px;
+}
+
 .SideBar fieldset {
-  border: 1px solid #AAAAAA;
+  border: 0;
   border-radius: 5px;
+  text-align: left;
+}
+
+.SideBar fieldset > div,
+.SideBar fieldset > select {
+  margin: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.SideBar fieldset input {
+  margin: 0 10px 0 0;
+}
+
+.SideBar form {
+  text-align: center;
+}
+
+.SideBar input[type="submit"] {
+  width: 50%;
+  border: 0;
+  background-color: grey;
+  color: white;
+  height: 30px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.SideBar input[type="submit"]:focus {
+  outline: transparent;
 }

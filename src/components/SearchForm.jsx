@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchForm.css';
+import './SearchForm.scss';
 
 class SearchForm extends Component {
 
@@ -12,11 +12,11 @@ class SearchForm extends Component {
 
   _handleChange = e => {
     this.setState({ inputValue: e.target.value });
-  }
+  } 
 
   _handleSubmit = e => {
     e.preventDefault();
-    this.props.setQueryState(this.state.inputValue);
+    this.props.updateSearch(this.state.inputValue);
   }
 
   render() {
