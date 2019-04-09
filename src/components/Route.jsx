@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Route.css';
+import './_Route.scss';
 
 class Route extends Component {
   constructor() {
@@ -8,7 +8,6 @@ class Route extends Component {
     this.state = {
       favorite: false
     }
-    // this.handleFavoriteClick =this.handleFavoriteClick.bind(this);
   }
 
   _handleFavoriteClick = () => {
