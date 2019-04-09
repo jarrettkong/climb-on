@@ -13,7 +13,8 @@ class App extends Component {
       searchQuery: '',
       filters: {
         types: [],
-        difficulties: []
+        difficulties: [],
+        sortOrder: true
       }
     }
   }
@@ -38,25 +39,26 @@ class App extends Component {
       place.routes = routes.filter( route => {
         return route.climbingPlaceId === place.climbingId;
       });
-      this.sortByDifficulty(place.routes);
       return place;
     });
   }
 
-  sortByDifficulty = (routes, bool) => {
-    routes.sort((a, b) => {
-      const first = parseInt(a.difficultyLevel.slice(2)
-          .replace('a','1')
-          .replace('b','2')
-          .replace('c','3')
-          .replace('d','4'));
-      const second = parseInt(b.difficultyLevel.slice(2)
-          .replace('a','1')
-          .replace('b','2')
-          .replace('c','3')
-          .replace('d','4'));
-      return bool ? first - second : second - first;
-    });
+  sortByDifficulty = (places, lowestFirst) => {
+    places.forEach(place => {
+      place.routes.sort((a, b) => {
+        const r1 = parseInt(a.difficultyLevel.slice(2)
+            .replace('a','1')
+            .replace('b','2')
+            .replace('c','3')
+            .replace('d','4'));
+        const r2 = parseInt(b.difficultyLevel.slice(2)
+            .replace('a','1')
+            .replace('b','2')
+            .replace('c','3')
+            .replace('d','4'));
+        return lowestFirst ? r1 - r2 : r2 - r1;
+      });
+    })
   }
 
   updateSearch = query => {
@@ -114,6 +116,7 @@ class App extends Component {
   render() {
     const searchResults = this.state.combinedData ? this.searchData() : [];
     const results = this.filterResults(searchResults);
+    this.sortByDifficulty(results, this.state.filters.sortOrder)
 
     return (
       <div className="App">
