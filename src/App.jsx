@@ -78,30 +78,38 @@ class App extends Component {
   // TODO cannot select multiple diffiiculties
   // TODO cannot stack filters between diff and type
   filterResults = searchResults => {
-    const { types, difficulties } = this.state.filters;
     return searchResults.map(result => {
       const newResult = Object.assign({}, result);
-      if (types.length > 0 && difficulties.length > 0) {
-        newResult.routes = newResult.routes.filter(route => {
-          let routeHasType = route.type.some(type => {
-            return types.includes(type);
-          });
-          let routeHasDifficulty = difficulties.includes(route.difficultyLevel.match(/.+[^a-d]/)[0]);
-          return routeHasType && routeHasDifficulty;
-        });
-      } else if (types.length > 0 && difficulties.length == 0) {
-        newResult.routes = newResult.routes.filter(route => {
-          return route.type.some(type => {
-            return types.includes(type);
-          });
-        });
-      } else {
-        newResult.routes = newResult.routes.filter(route => {
-          return difficulties.includes(route.difficultyLevel.match(/.+[^a-d]/)[0]);
-        });
-      }
+      newResult.routes = this.filterRoutes(newResult.routes);
       return newResult;
-    })
+    });
+  }
+
+  filterRoutes(routes) {
+    const { types, difficulties } = this.state.filters;
+    return routes.filter(route => {
+      let doesRouteHaveType = this.isRouteTypeAllowed(types, route);
+      let doesRouteHaveDiff = this.isRouteDifficultyAllowed(difficulties, route);
+      if (types.length > 0 && difficulties.length > 0) {
+        return doesRouteHaveType && doesRouteHaveDiff;
+      } else if (types.length > 0) {
+        return doesRouteHaveType;
+      } else if (difficulties.length > 0) {
+        return doesRouteHaveDiff;
+      } else {
+        return true;
+      }
+    });
+  }
+
+  isRouteTypeAllowed(allowedTypes, route) {
+    return route.type.some(type => {
+      return allowedTypes.includes(type);
+    });
+  }
+
+  isRouteDifficultyAllowed(allowedDifficulties, route) {
+    return allowedDifficulties.includes(route.difficultyLevel.match(/.+[^a-d]/)[0]);
   }
 
   updateFilters = filters => {
