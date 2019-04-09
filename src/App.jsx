@@ -81,10 +81,24 @@ class App extends Component {
     const { types, difficulties } = this.state.filters;
     return searchResults.map(result => {
       const newResult = Object.assign({}, result);
-      if(types.length > 0 || difficulties > 0) {
+      if (types.length > 0 && difficulties.length > 0) {
         newResult.routes = newResult.routes.filter(route => {
-          return route.type.some(type => types.includes(type)) || difficulties.includes(route.difficultyLevel.match(/([5]*[.])?[0-9]+/)[0])
-        })
+          let routeHasType = route.type.some(type => {
+            return types.includes(type);
+          });
+          let routeHasDifficulty = difficulties.includes(route.difficultyLevel.match(/.+[^a-d]/)[0]);
+          return routeHasType && routeHasDifficulty;
+        });
+      } else if (types.length > 0 && difficulties.length == 0) {
+        newResult.routes = newResult.routes.filter(route => {
+          return route.type.some(type => {
+            return types.includes(type);
+          });
+        });
+      } else {
+        newResult.routes = newResult.routes.filter(route => {
+          return difficulties.includes(route.difficultyLevel.match(/.+[^a-d]/)[0]);
+        });
       }
       return newResult;
     })
