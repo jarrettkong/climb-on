@@ -33,43 +33,14 @@ class App extends Component {
     }).catch(error => console.log(error))
   }
 
-  componentDidUpdate = () => {
-    let sortedRoutes = this.sortByDifficulty(this.state.routes);
-    let filteredRoutes = this.filterRoutesByType(sortedRoutes);
-    let results = this.addRoutesToPlaces(filteredRoutes, this.state.places)
-    if (this.state.query !== '') {
-    results = this.submitSearch(this.state.query, results);
-    }
-    if (JSON.stringify(this.state.results) !== JSON.stringify(results)) {
-      this.setState({
-        results: results
-      })
-    }
-  }
-
-  filterRoutesByType = (routes) => {
-
-    let approvedTypes = Object.keys(this.state.types).filter(key => {
-      return this.state.types[key];
-    })
-
-    let routesWithApprovedTypes = routes.filter( route => {
-      return route.type.some( (type) => {
-        return approvedTypes.includes(type);
-      });
-    })
-
-    return routesWithApprovedTypes;
-  }
-
-  addRoutesToPlaces = (routes, places) => {
+  mergeData = (routes, places) => {
     return places.map( place => {
       place.routes = routes.filter( route => {
         return route.climbingPlaceId === place.climbingId;
-      })
+      });
       this.sortByDifficulty(place.routes);
       return place;
-    })
+    });
   }
 
   sortByDifficulty = (routes, bool) => {
@@ -98,12 +69,9 @@ class App extends Component {
       return r.place.toLowerCase().includes(query) ||
              r.closestTown.toLowerCase().includes(query)
     })
-
     return results;
   }
 
-  // TODO cannot select multiple diffiiculties
-  // TODO cannot stack filters between diff and type
   filterResults = searchResults => {
     return searchResults.map(result => {
       const newResult = Object.assign({}, result);
