@@ -6,7 +6,26 @@ import "./_Place.scss";
 class Place extends Component {
 
   render() {
-    const {place, closestTown, climbingId, routes} = this.props;
+    let displayRoutes;
+    const { place, closestTown, routes } = this.props;
+
+    if(this.props.routes.length > 0) {
+      displayRoutes = routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            climbingPlaceId={route.climbingPlaceId}
+            area={route.area}
+            routeName={route.routeName}
+            difficultyLevel={route.difficultyLevel}
+            type={route.type}
+          />
+        )
+      })
+    } else {
+      displayRoutes = <h3 className="Place-no-results-text">No routes to display</h3>
+    }
+
     return (
       <article className="Place module">
         <section className="Place-header-container">
@@ -16,20 +35,7 @@ class Place extends Component {
           </div>
         </section>
         <section className="Place-routes-container">
-          {
-            routes.map((route, index) => {
-              return (
-                <Route
-                  key={index}
-                  climbingPlaceId={route.climbingPlaceId}
-                  area={route.area}
-                  routeName={route.routeName}
-                  difficultyLevel={route.difficultyLevel}
-                  type={route.type}
-                />
-              )
-            })
-          } 
+          {displayRoutes} 
         </section>
       </article>
     )
