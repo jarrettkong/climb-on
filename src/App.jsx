@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './_App.scss';
 import Places from './components/Places.jsx';
 import SearchForm from './components/SearchForm.jsx';
 

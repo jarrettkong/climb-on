@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Route from './Route.jsx';
 
-import "./Place.scss";
+import "./_Place.scss";
 
 class Place extends Component {
-  
+
   render() {
     const {place, closestTown, climbingId, routes} = this.props;
     return (

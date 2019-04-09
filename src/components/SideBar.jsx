@@ -1,4 +1,4 @@
-import './SideBar.scss';
+import './_SideBar.scss';
 import React, { Component } from 'react';
 import App from '../App.jsx'
 

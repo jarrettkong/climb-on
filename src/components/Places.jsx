@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './SideBar.jsx';
 import Place from './Place.jsx';
 
-import './Places.scss';
+import './_Places.scss';
 
 class Places extends Component {
 

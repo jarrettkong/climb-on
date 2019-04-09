@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Route.scss';
+import './_Route.scss';
 
 class Route extends Component {
   constructor() {
