@@ -45,18 +45,18 @@ class App extends Component {
 
   sortByDifficulty = (places, lowestFirst) => {
     places.forEach(place => {
-      place.routes.sort((routeA, routeB) => {
-        const diffA = parseInt(routeA.difficultyLevel.slice(2)
+      place.routes.sort((a, b) => {
+        const r1 = parseInt(a.difficultyLevel.slice(2)
             .replace('a','1')
             .replace('b','2')
             .replace('c','3')
             .replace('d','4'));
-        const diffB = parseInt(routeB.difficultyLevel.slice(2)
+        const r2 = parseInt(b.difficultyLevel.slice(2)
             .replace('a','1')
             .replace('b','2')
             .replace('c','3')
             .replace('d','4'));
-        return lowestFirst ? diffA - diffB : diffA - diffB;
+        return lowestFirst ? r1 - r2 : r2 - r1;
       });
     })
   }
