@@ -2,14 +2,14 @@ import React from 'react';
 import SearchForm from '../components/SearchForm';
 import { shallow } from 'enzyme';
 
-const mock_handleSubmit = jest.fn();
+const mock_updateSearch = jest.fn();
 
 describe('SearchForm', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <SearchForm submitSearch={mock_handleSubmit}/>
+      <SearchForm updateSearch={mock_updateSearch}/>
     )
   });
 
@@ -27,5 +27,12 @@ describe('SearchForm', () => {
     expect(wrapper.state()).toEqual({ inputValue: 'new value' })
   });
 
-  // Simulate Click on search button
+  it('should prevent default reload when search form is submitted', () => {
+    const preventDefault = jest.fn();
+    wrapper.find('.SearchForm-form').simulate('submit', { preventDefault });
+    expect(preventDefault).toBeCalled();
+  });
 });
+
+
+
