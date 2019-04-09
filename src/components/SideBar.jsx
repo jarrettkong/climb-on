@@ -9,8 +9,9 @@ class Sidebar extends Component {
     this.state = {
       filters: {
         types: [],
-        difficulties: []
-      }
+        difficulties: [],
+        sortOrder: true
+      },
     }
   }
 
@@ -23,11 +24,14 @@ class Sidebar extends Component {
   //   this.props.setTypesState(climbingTypes);
   // }
 
+
+
   _handleSubmit = e => {
     e.preventDefault();
     this.props.updateFilters(this.state.filters);
   }
 
+  // TODO can be combnined probably into _handleCheck
   // TODO should use e.target.value and add value prop to checkbox?
   _handleFilterType = e => {
     const filters = Object.assign({}, this.state.filters);
@@ -49,15 +53,21 @@ class Sidebar extends Component {
     this.setState({ filters: filters });
   }
 
+  _handleSelect = e => {
+    const filters = Object.assign({}, this.state.filters);
+    filters.sortOrder = e.target.value === 'lowest' ? true : false;
+    this.setState({ filters: filters });
+  }
+
   render() {
     return (
       <aside className='SideBar'>
         <form action="" className="SideBar-filter-form" onSubmit={this._handleSubmit}>
           <fieldset>
             <legend>Sort:</legend>
-            <select id="sort">
-              <option>Highest to Lowest</option>
-              <option>Lowest to Highest</option>
+            <select id="sort" onChange={this._handleSelect}>
+              <option value="lowest">Lowest to Highest</option>
+              <option value="highest">Highest to Lowest</option>
             </select>
           </fieldset>
           <fieldset>
