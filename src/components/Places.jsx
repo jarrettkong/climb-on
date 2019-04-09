@@ -8,7 +8,7 @@ class Places extends Component {
 
   render() {
     return (
-      <section className="Places">
+      <section className="Places" id="Places">
       <h2 className="Places-header">Results</h2>
         <Sidebar updateFilters={this.props.updateFilters}/>
         <section className="Places-container">
