@@ -112,21 +112,30 @@ class App extends Component {
   updateFilters = filters => {
     this.setState({ filters: filters });
   }
+
+  getDataToDisplay = () => {
+    const searchResults = this.state.combinedData ? this.searchData() : [];
+    const results = this.filterResults(searchResults);
+    this.sortByDifficulty(results, this.state.filters.sortOrder);
+    return results;
+  }
   
   render() {
-    let searchResults = this.state.combinedData || [];
-    if(this.state.searchQuery !== '') {
-      searchResults = this.searchData();
+    
+    let places;
+    const results = this.getDataToDisplay();
+
+    // ! Only works if the re-render is not run
+    if(results.length > 0) {
+      places = <Places places={results} updateFilters={this.updateFilters} />
     }
-    const results = this.filterResults(searchResults);
-    this.sortByDifficulty(results, this.state.filters.sortOrder)
 
     return (
       <div className="App">
         <header>
         <SearchForm updateSearch={this.updateSearch}/>
         </header>
-        <Places places={results} updateFilters={this.updateFilters} />
+        {places}
       </div>
     );
   }
