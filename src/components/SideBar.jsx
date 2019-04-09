@@ -1,8 +1,9 @@
-import './SideBar.css';
+import './_SideBar.scss';
 import React, { Component } from 'react';
 import App from '../App.jsx'
 
 class Sidebar extends Component {
+
   constructor(props) {
     super(props);
 
@@ -14,17 +15,6 @@ class Sidebar extends Component {
       },
     }
   }
-
-  // _handleClick = () =>{
-  //   let checkboxes = [...document.querySelectorAll('.type-check-box')];
-  //   let climbingTypes = checkboxes.reduce((acc, checkbox) => {
-  //     acc[checkbox.name] = checkbox.checked;
-  //     return acc;
-  //   }, {});
-  //   this.props.setTypesState(climbingTypes);
-  // }
-
-
 
   _handleSubmit = e => {
     e.preventDefault();

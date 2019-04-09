@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import './_App.scss';
 import Places from './components/Places.jsx';
 import SearchForm from './components/SearchForm.jsx';
-// import Footer from './components/Footer.jsx';
 
 class App extends Component {
 
@@ -33,16 +32,15 @@ class App extends Component {
       const combinedData = this.mergeData(data[0].routes, data[1].climbingPlaces)
       this.setState({combinedData: combinedData})
     }).catch(error => console.log(error))
-    
   }
 
   mergeData = (routes, places) => {
     return places.map( place => {
       place.routes = routes.filter( route => {
         return route.climbingPlaceId === place.climbingId;
-      })
+      });
       return place;
-    })
+    });
   }
 
   sortByDifficulty = (places, lowestFirst) => {
@@ -76,8 +74,6 @@ class App extends Component {
     return results;
   }
 
-  // TODO cannot select multiple diffiiculties
-  // TODO cannot stack filters between diff and type
   filterResults = searchResults => {
     return searchResults.map(result => {
       const newResult = Object.assign({}, result);
@@ -127,9 +123,7 @@ class App extends Component {
         <header>
         <SearchForm updateSearch={this.updateSearch}/>
         </header>
-        {/* // TODO not show on start */}
         <Places places={results} updateFilters={this.updateFilters} />
-        {/* <Footer /> */}
       </div>
     );
   }
