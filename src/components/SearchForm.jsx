@@ -12,11 +12,11 @@ class SearchForm extends Component {
 
   _handleChange = e => {
     this.setState({ inputValue: e.target.value });
-  }
+  } 
 
   _handleSubmit = e => {
     e.preventDefault();
-    this.props.submitSearch(this.state.inputValue);
+    this.props.updateSearch(this.state.inputValue);
   }
 
   render() {
