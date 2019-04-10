@@ -1,13 +1,10 @@
 .SearchForm {
-  background-image: url('../images/climbon.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
   flex-direction: column;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-items: center;
+  align-content: center;
+  padding: 10px 15px 20px 15px;
+  border-radius: 15px;
 }
 
 .SearchForm-form {
@@ -17,19 +14,19 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: rgba(249, 245, 245, 0.851);
+  width: 100%;
 }
 
 .SearchForm-search-bar {
   height: 2.5rem;
-  width: 12.3rem;
-  /* background-color: rgba(198, 157, 157, 0.968);  */
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-style: none;
   border-color: #c3e5fe;
   font-size: 20px;
   color: grey;
-  padding: 4px 0px 0px 11px;
+  padding-left: 15px;
+  width: 100%;
 }
 
 .SearchForm-search-bar:focus {
@@ -41,12 +38,13 @@
   font-weight: bold;
   font-size: 5em;
   margin: 0;
+  line-height: 100%;
   text-transform: uppercase;
   font-family: sans-serif;
 }
 
 .logo span {
-  color: red;
+  color: orange;
 }
 
 .SearchForm-submit-button {
