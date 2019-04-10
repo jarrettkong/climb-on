@@ -1,14 +1,48 @@
-/* .App {
+.App {
   margin: auto;
+  background-color: #f4f4f4;
+}
+
+.module {
+  padding: 25px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #d8d9db;
+  box-shadow: 0 0 1px lightgrey;
+  background-color: white;
 }
 
 .App-header {
-  background-image: url('./images/climbon.jpg');
+  background-image: linear-gradient(hsla(0,0,0,0.5), hsla(0,0,0,0.5)), url('https://images.unsplash.com/photo-1468173376803-727a153c27ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   margin: 0;
-  text-align: center;
-} */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
 
+.App-arrow-container {
+  position: absolute;
+  bottom: 25px;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    outline: transparent;
+  }
+}
+
+.App-down-arrow {
+  font-size: 80px;
+  color: orange;
+  transition: transform 1s;
+  &:hover {
+    transform: translate(0, -10px); 
+  }
+}

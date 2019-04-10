@@ -22,9 +22,9 @@ class SearchForm extends Component {
   render() {
     return (
       <section className="SearchForm">
-        <h1 className="logo">Climb<span>On</span></h1>
+        <h1 className="SearchForm-logo">Climb<span>On</span></h1>
         <form className="SearchForm-form" onSubmit={this._handleSubmit}>
-          <input className="SearchForm-search-bar" type="text" name="search" autoComplete="on" placeholder="Search" onChange={this._handleChange}/>
+          <input className="SearchForm-search-bar" type="text" name="search" autoComplete="on" placeholder="Search an area or town..." onChange={this._handleChange}/>
           <button className="SearchForm-submit-button"><i className="fas fa-search"></i></button>
         </form>
       </section>

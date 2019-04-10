@@ -106,7 +106,8 @@ class App extends Component {
   }
 
   isRouteDifficultyAllowed(allowedDifficulties, route) {
-    return allowedDifficulties.includes(route.difficultyLevel.match(/.+[^a-d]/)[0]);
+    const regex = /.+[^a-d]/
+    return allowedDifficulties.includes(route.difficultyLevel.match(regex)[0]);
   }
 
   updateFilters = filters => {
@@ -123,17 +124,22 @@ class App extends Component {
   render() {
     
     let places;
+    let downArrow;
     const results = this.getDataToDisplay();
 
     // ! Only works if the re-render is not run
     if(results.length > 0) {
       places = <Places places={results} updateFilters={this.updateFilters} />
+      downArrow = <a href="#Places" className="App-arrow-container">
+                    <i className="fas fa-chevron-down App-down-arrow bounce"></i>
+                  </a>
     }
 
     return (
       <div className="App">
-        <header>
-        <SearchForm updateSearch={this.updateSearch}/>
+        <header className="App-header">
+          <SearchForm updateSearch={this.updateSearch}/>
+          {downArrow}
         </header>
         {places}
       </div>

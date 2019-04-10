@@ -1,12 +1,14 @@
 .Route {
-  padding-left: 15px;
   /* border: 1px solid #d8d9db; */
   border-radius: 3px;
   /* margin-right: 10px; */
   width: 100%;
   position: relative;
-  margin: 0 10px 25px 0;
+  margin-bottom: 15px;
   /* height: 200px; */
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .Route-name {

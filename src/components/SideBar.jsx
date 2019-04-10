@@ -51,7 +51,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <aside className='SideBar'>
+      <aside className='SideBar module'>
         <form action="" className="SideBar-filter-form" onSubmit={this._handleSubmit}>
           <fieldset>
             <legend>Sort:</legend>
