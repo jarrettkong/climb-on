@@ -5,7 +5,7 @@ exports[`SearchForm should match the snapshot with all the data passed in 1`] = 
   className="SearchForm"
 >
   <h1
-    className="logo"
+    className="SearchForm-logo"
   >
     Climb
     <span>
@@ -21,7 +21,7 @@ exports[`SearchForm should match the snapshot with all the data passed in 1`] = 
       className="SearchForm-search-bar"
       name="search"
       onChange={[Function]}
-      placeholder="Search"
+      placeholder="Search an area or town..."
       type="text"
     />
     <button
