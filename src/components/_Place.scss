@@ -1,6 +1,5 @@
 .Place {
   padding: 0;
-  padding-bottom: 15px;
   text-align: left;
   border-bottom: 1px solid lightgrey;
   margin-bottom: 25px;
@@ -11,6 +10,7 @@
   background-image: linear-gradient(hsla(0,0,0,0.5), hsla(0,0,0,0.5)), url('http://4.bp.blogspot.com/-vbVkH6dOGY4/VIRy6fhNvHI/AAAAAAAAQT8/89qYd1reuAw/s1600/IMG_6830.JPG');
   color: white;
   background-size: cover;
+  border-radius: 5px 5px 0 0;
 }
 
 .Place-info {
@@ -24,12 +24,10 @@
 .Place-name {
   margin: 0;
   font-size: 35px;
-  font-weight: 500;
 }
 
 .Place-nearest-town {
   margin: 0;
-  font-weight: 700;
   margin-left: 2px;
 }
 
@@ -39,12 +37,15 @@
   height: 150px;
 }
 
-.Place-routes-label {
-  margin: 0 0 15px 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid grey;
-  font-weight: 500;
+.Place-no-results-text {
+  margin: 0;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
   font-size: 25px;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .Place-divider {
@@ -54,12 +55,10 @@
 }
 
 .Place-routes-container {
-  /* border: 1px solid white; */
-  /* box-shadow: 0 0 2px lightgrey inset; */
-  /* padding: 10px; */
   padding: 25px;
   border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  /* overflow-x: auto; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  // flex-direction: column;
 }
