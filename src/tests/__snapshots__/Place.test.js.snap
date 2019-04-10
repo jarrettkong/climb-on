@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchForm should display No routes to display if there are no routes 1`] = `
+exports[`Place should display No routes to display if there are no routes 1`] = `
 <article
   className="Place module"
 >
@@ -35,7 +35,7 @@ exports[`SearchForm should display No routes to display if there are no routes 1
 </article>
 `;
 
-exports[`SearchForm should match the snapshot with all the data passed in 1`] = `
+exports[`Place should match the snapshot with all the data passed in 1`] = `
 <article
   className="Place module"
 >

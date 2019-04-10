@@ -30,6 +30,10 @@
     "enzyme-to-json": "^3.3.5"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
