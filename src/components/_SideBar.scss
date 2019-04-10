@@ -3,6 +3,7 @@
   grid-column-end: 2;
   grid-column-start: 1;
   height: 700px;
+  box-shadow: 0 0 3px rgba(33, 25, 25, 0.42);
 }
 
 .SideBar legend {
@@ -18,11 +19,16 @@
   text-align: left;
 }
 
+.SideBar fieldset select {
+  height: 40px;
+}
+
 .SideBar fieldset > div,
 .SideBar fieldset > select {
   margin: 10px 20px;
   display: flex;
   align-items: center;
+  width: 178px;
 }
 
 .SideBar fieldset input {
@@ -31,6 +37,8 @@
 
 .SideBar-filter-form {
   text-align: center;
+  width: 246px;
+  margin: 30px 29px;
 }
 
 .SideBar input[type="submit"] {

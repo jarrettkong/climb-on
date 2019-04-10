@@ -4,13 +4,16 @@
   text-align: left;
   border-bottom: 1px solid lightgrey;
   margin-bottom: 25px;
+  box-shadow: 0 0 3px rgba(33, 25, 25, 0.42);
 }
 
 .Place-header-container {
   padding: 25px;
   background-image: linear-gradient(hsla(0,0,0,0.5), hsla(0,0,0,0.5)), url('http://4.bp.blogspot.com/-vbVkH6dOGY4/VIRy6fhNvHI/AAAAAAAAQT8/89qYd1reuAw/s1600/IMG_6830.JPG');
-  color: white;
+  color: #fff;
   background-size: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .Place-info {

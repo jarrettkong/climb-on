@@ -12,24 +12,30 @@ exports[`Route should render correctly with all of the information passed 1`] = 
   <div
     className="Route-info-container"
   >
-    <h5
+    <h6
       className="Route-area"
     >
       Area: 
-      Brown Cloud Crags
-    </h5>
-    <h5
+      <span>
+        Brown Cloud Crags
+      </span>
+    </h6>
+    <h6
       className="Route-difficulty"
     >
       Difficulty: 
-      5.8
-    </h5>
-    <h5
+      <span>
+        5.8
+      </span>
+    </h6>
+    <h6
       className="Route-type"
     >
       Type: 
-      sport
-    </h5>
+      <span>
+        sport
+      </span>
+    </h6>
   </div>
   <i
     className="fas fa-heart Route-favorite-button"
