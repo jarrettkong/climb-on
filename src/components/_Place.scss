@@ -1,43 +1,24 @@
-/* .module {
-  border: 1px solid #d8d9db;
-  border-radius: 5px;
-  box-shadow: 0 0 1px lightgrey;
-} */
-
 .Place {
-  margin: 25px;
-  /* padding: 25px; */
+  padding: 0;
   padding-bottom: 15px;
-  /* max-width: 750px; */
-  /* max-width: 800px; */
-  /* padding: 25px; */
   text-align: left;
   border-bottom: 1px solid lightgrey;
-}
-
-.Place:first-of-type {
-  margin-top: 0;
-}
-
-.Place > * {
-  margin: 0;
+  margin-bottom: 25px;
 }
 
 .Place-header-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+  padding: 25px;
+  background-image: linear-gradient(hsla(0,0,0,0.5), hsla(0,0,0,0.5)), url('http://4.bp.blogspot.com/-vbVkH6dOGY4/VIRy6fhNvHI/AAAAAAAAQT8/89qYd1reuAw/s1600/IMG_6830.JPG');
+  color: white;
+  background-size: cover;
 }
 
 .Place-info {
   flex: 3;
-  /* height: 150px; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin: 0 0 15px 0;
+  justify-content: center;
+  margin: 10px 0;
 }
 
 .Place-name {
@@ -48,7 +29,8 @@
 
 .Place-nearest-town {
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
+  margin-left: 2px;
 }
 
 .Place-photo {
@@ -75,8 +57,8 @@
   /* border: 1px solid white; */
   /* box-shadow: 0 0 2px lightgrey inset; */
   /* padding: 10px; */
+  padding: 25px;
   border-radius: 3px;
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   /* overflow-x: auto; */

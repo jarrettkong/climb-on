@@ -15,6 +15,7 @@
   font-size: calc(10px + 2vmin);
   color: rgba(249, 245, 245, 0.851);
   width: 100%;
+  margin-top: 20px;
 }
 
 .SearchForm-search-bar {
@@ -33,7 +34,7 @@
   outline: transparent;
 }
 
-.logo {
+.SearchForm-logo {
   color: white;
   font-weight: bold;
   font-size: 5em;
@@ -43,7 +44,7 @@
   font-family: sans-serif;
 }
 
-.logo span {
+.SearchForm-logo span {
   color: orange;
 }
 
@@ -54,8 +55,9 @@
   height: 2.5rem;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  padding: 5px 7px 6px 9px;
-  font-size: 27px;
+  padding: 5px 10px;
+  font-size: 20px;
+  line-height: 100%;
   cursor: pointer;
   border: none;
 }

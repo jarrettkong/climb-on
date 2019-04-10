@@ -5,20 +5,19 @@
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 	justify-items: center;
+	grid-column-gap: 20px;
 }
 
 .Places-header {
 	width: 100%;
 	font-size: 60px;
+	color: #393939;
 	padding: 20px 0;
 	margin: 0;
 	grid-column-start: 1;
 	grid-column-end: 3;
-	border-bottom: 2px solid black;
 }
 
 .Places-container {
 	width: 100%;
-	border-left: 1px solid lightgrey;
-	margin-top: 25px;
 }

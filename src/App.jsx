@@ -131,7 +131,7 @@ class App extends Component {
     if(results.length > 0) {
       places = <Places places={results} updateFilters={this.updateFilters} />
       downArrow = <a href="#Places" className="App-arrow-container">
-                    <i className="fas fa-chevron-down App-down-arrow"></i>
+                    <i className="fas fa-chevron-down App-down-arrow bounce"></i>
                   </a>
     }
 
