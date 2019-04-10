@@ -40,7 +40,7 @@ const mockResults = [
   }
 ]
 
-describe('SearchForm', () => {
+describe('Places', () => {
   let wrapper;
 
   beforeEach(() => {
