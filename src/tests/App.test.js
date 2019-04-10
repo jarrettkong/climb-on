@@ -15,10 +15,37 @@ const mockRoute2 = {
   "area": "Brown Cloud Crags",
   "routeName": "Louise",
   "difficultyLevel": "5.9",
-  "type": ["sport"] 
+  "type": ["trad"] 
 }
 
-const mockAllowedDifficulties = ["5.8"]
+const mockRoutes = [mockRoute, mockRoute2];
+
+const mockResults = [
+  { 
+    "place": "Golden Cliffs",
+    "closestTown": "Golden, Colorado",
+    "climbingId": 1,
+    "routes": mockRoutes
+  },
+  { 
+    "place": "Hot Mess",
+    "closestTown": "Denver, Colorado",
+    "climbingId": 2,
+    "routes": [
+      { 
+        "climbingPlaceId": 2,
+        "area": "Brown Cloud Crags",
+        "routeName": "Louise",
+        "difficultyLevel": "5.7",
+        "type": ["top-rope"] 
+      }
+
+    ]
+  }
+]
+
+const mockAllowedTypes = ["sport"];
+const mockAllowedDifficulties = ["5.8"];
 
 describe("App", () => {
 
@@ -32,6 +59,56 @@ describe("App", () => {
 	
   it("should match the snapshot with all data passed in", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe("filterRoutes Method", () => {
+    it("should return all routes if there is no filter criteria", () => {
+      let filteredRoutes = wrapper.instance().filterRoutes(mockRoutes);
+      expect(filteredRoutes).toEqual(mockRoutes);
+    });
+
+    it("should filter by both difficulty and type if they both exist in state", () => {
+      let newFilters = {
+        types: ['trad'],
+        difficulties: ['5.9'],
+        sortOrder: true
+      }
+      wrapper.instance().updateFilters(newFilters);
+      let filteredRoutes = wrapper.instance().filterRoutes(mockRoutes);
+      expect(filteredRoutes).toEqual([mockRoute2]);
+    });
+
+    it("should only filter by difficulty if there is no type filter criteria", () => {
+      let newFilters = {
+        types: [],
+        difficulties: ['5.9'],
+        sortOrder: true
+      }
+      wrapper.instance().updateFilters(newFilters);
+      let filteredRoutes = wrapper.instance().filterRoutes(mockRoutes);
+      expect(filteredRoutes).toEqual([mockRoute2]);
+    });
+
+    it("should only filter by type if there is no difficulty filter criteria", () => {
+      let newFilters = {
+        types: ['sport'],
+        difficulties: [],
+        sortOrder: true
+      }
+      wrapper.instance().updateFilters(newFilters);
+      let filteredRoutes = wrapper.instance().filterRoutes(mockRoutes);
+      expect(filteredRoutes).toEqual([mockRoute]);
+    });
+  })
+
+  describe("isRouteTypeAllowed Method", () => {
+    it("should return true if the route type is allowed", () => {
+      expect(wrapper.instance().isRouteTypeAllowed(mockAllowedTypes, mockRoute)).toEqual(true);
+    });
+
+    it("should return false if the route doesn't have any approved types", () => {
+      expect(wrapper.instance().isRouteTypeAllowed(mockAllowedTypes, mockRoute2)).toEqual(false);
+    });
   });
 
   describe("isRouteDifficultyAllowed Method", () => {
