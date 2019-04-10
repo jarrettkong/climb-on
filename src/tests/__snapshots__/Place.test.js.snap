@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm should display No routes to display if there are no routes 1`] = `
+<article
+  className="Place module"
+>
+  <section
+    className="Place-header-container"
+  >
+    <div
+      className="Place-info"
+    >
+      <h3
+        className="Place-name"
+      >
+        Golden Cliffs
+      </h3>
+      <h4
+        className="Place-nearest-town"
+      >
+        Closest City: 
+        Golden, Colorado
+      </h4>
+    </div>
+  </section>
+  <section
+    className="Place-routes-container"
+  >
+    <h3
+      className="Place-no-results-text"
+    >
+      No routes to display
+    </h3>
+  </section>
+</article>
+`;
+
+exports[`SearchForm should match the snapshot with all the data passed in 1`] = `
+<article
+  className="Place module"
+>
+  <section
+    className="Place-header-container"
+  >
+    <div
+      className="Place-info"
+    >
+      <h3
+        className="Place-name"
+      >
+        Golden Cliffs
+      </h3>
+      <h4
+        className="Place-nearest-town"
+      >
+        Closest City: 
+        Golden, Colorado
+      </h4>
+    </div>
+  </section>
+  <section
+    className="Place-routes-container"
+  >
+    <Route
+      area="Brown Cloud Crags"
+      climbingPlaceId={1}
+      difficultyLevel="5.8"
+      key="0"
+      routeName="Louise"
+      type={
+        Array [
+          "sport",
+        ]
+      }
+    />
+    <Route
+      area="Brown Cloud Crags"
+      climbingPlaceId={1}
+      difficultyLevel="5.7"
+      key="1"
+      routeName="Thelma"
+      type={
+        Array [
+          "sport",
+        ]
+      }
+    />
+  </section>
+</article>
+`;
