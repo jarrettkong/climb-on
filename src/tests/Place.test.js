@@ -52,13 +52,4 @@ describe('SearchForm', () => {
 
     expect(wrapper2).toMatchSnapshot();
   });
-
-
-
-
-
-
-
-
-
 });
