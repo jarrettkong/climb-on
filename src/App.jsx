@@ -6,8 +6,7 @@ import SearchForm from './components/SearchForm.jsx';
 class App extends Component {
 
   constructor(){
-    super() 
-
+    super()
     this.state = {
       combinedData: null,
       searchQuery: '',
