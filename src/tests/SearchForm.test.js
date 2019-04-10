@@ -27,10 +27,9 @@ describe('SearchForm', () => {
     expect(wrapper.state()).toEqual({ inputValue: 'new value' })
   });
 
-  it('should prevent default reload when search form is submitted', () => {
-    const preventDefault = jest.fn();
-    wrapper.find('.SearchForm-form').simulate('submit', { preventDefault });
-    expect(preventDefault).toBeCalled();
+  it('should call updateSearch when search form is submitted', () => {
+    wrapper.find('.SearchForm-form').simulate('submit', { preventDefault: () => {} });
+    expect(mock_updateSearch).toBeCalled();
   });
 });
 
