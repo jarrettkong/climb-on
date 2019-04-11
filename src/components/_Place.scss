@@ -1,65 +1,53 @@
 .Place {
-  padding: 0;
-  text-align: left;
   border-bottom: 1px solid lightgrey;
   margin-bottom: 25px;
+  padding: 0;
+  text-align: left;
   box-shadow: 0 0 3px rgba(33, 25, 25, 0.42);
 }
 
 .Place-header-container {
-  padding: 25px;
   background-image: linear-gradient(hsla(0,0,0,0.5), hsla(0,0,0,0.5)), url('http://4.bp.blogspot.com/-vbVkH6dOGY4/VIRy6fhNvHI/AAAAAAAAQT8/89qYd1reuAw/s1600/IMG_6830.JPG');
   color: #fff;
   background-size: cover;
   border-radius: 5px 5px 0 0;
+  color: white;
+  padding: 25px;
 }
 
 .Place-info {
-  flex: 3;
   display: flex;
   flex-direction: column;
+  flex: 3;
   justify-content: center;
   margin: 10px 0;
 }
 
 .Place-name {
-  margin: 0;
   font-size: 35px;
+  margin: 0;
 }
 
 .Place-nearest-town {
-  margin: 0;
   margin-left: 2px;
-}
-
-.Place-photo {
-  flex: 2;
-  border: 1px solid black;
-  height: 150px;
-}
-
-.Place-no-results-text {
   margin: 0;
-  font-weight: 700;
-  color: #999;
-  text-transform: uppercase;
-  font-size: 25px;
-  text-align: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-.Place-divider {
-  border-style: none;
-  border-bottom: 1px solid #d8d9db;
-  margin: 5px 0 10px 0;
 }
 
 .Place-routes-container {
-  padding: 25px;
   border-radius: 3px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  // flex-direction: column;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 25px;
+}
+
+.Place-no-results-text {
+  color: #999;
+  font-size: 25px;
+  font-weight: 700;
+  grid-column-end: 3;
+  grid-column-start: 1;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
 }

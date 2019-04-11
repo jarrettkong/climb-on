@@ -13,7 +13,6 @@ exports[`Route should render correctly with all of the information passed 1`] = 
       Louise
     </h4>
     <h6
-
       className="Route-area"
     >
       Area: 
