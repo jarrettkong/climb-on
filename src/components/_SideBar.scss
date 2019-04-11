@@ -10,11 +10,11 @@
 }
 
 .Sidebar-category {
-  font-size: 17px;
-  border: 0;
-  padding: 0;
-  margin: 10px 0;
   border-radius: 5px;
+  border: 0;
+  font-size: 17px;
+  margin: 10px 0;
+  padding: 0;
   text-align: left;
   
   & input {
@@ -23,9 +23,9 @@
   
   & > div,
   & > select {
-    margin: 10px 20px;
-    display: flex;
     align-items: center;
+    display: flex;
+    margin: 10px 20px;
   }
 }
 
@@ -44,16 +44,16 @@
 }
 
 .Sidebar-form-submit-btn {
-  width: 50%;
-  border: 0;
   background-color: orange;
-  color: white;
-  height: 35px;
   border-radius: 100px;
+  border: 0;
+  color: white;
   cursor: pointer;
   font-weight: 600;
+  height: 35px;
   text-transform: uppercase;
   transition: width 0.25s;
+  width: 50%;
   &:hover {
     width: 55%;
   }
