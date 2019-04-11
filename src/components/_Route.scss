@@ -1,10 +1,11 @@
 .Route {
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid lightgrey;
   padding: 10px;
   position: relative;
   width: 100%;
   margin-bottom: 15px;
+  box-shadow: 2px 4px 7px 0px #888888;
   &:last-child {
     margin-bottom: 0;
   }
@@ -33,13 +34,16 @@
 
 .Route-info-container h5 {
   color: grey;
-  font-size: 15px;
+  // font-size: 15px;
   margin: 0;
 }
 
 section h6 span {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 300;
+}
+.Route-field {
+  font-weight: 400;
 }
 
 .Route-type {
@@ -48,7 +52,7 @@ section h6 span {
 }
 
 .Route-favorite-button {
-  color: lightgrey;
+  color: #d3d3d3;
   cursor: pointer;
   font-size: 25px;
   position: absolute;
