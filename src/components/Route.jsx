@@ -30,6 +30,7 @@ class Route extends Component {
     const { area, routeName, difficultyLevel, type } = this.props;
     return (
       <section className="Route">
+        <h4 class="Route-name">{routeName}</h4>
         <div className="Route-info-container">
           <h6 className="Route-area">Area: <span>{area}</span></h6>
           <h6 className="Route-difficulty">Difficulty: <span>{difficultyLevel}</span></h6>
