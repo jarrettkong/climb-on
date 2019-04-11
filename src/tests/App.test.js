@@ -18,29 +18,41 @@ const mockRoute2 = {
   "type": ["trad"] 
 }
 
-const mockRoutes = [mockRoute, mockRoute2];
+const mockRoute3 = { 
+  "climbingPlaceId": 2,
+  "area": "Brown Cloud Crags",
+  "routeName": "Louise",
+  "difficultyLevel": "5.7",
+  "type": ["top-rope"] 
+}
 
-const mockResults = [
+const mockRoutes = [mockRoute, mockRoute2, mockRoute3];
+
+const mockPlaces = [
   { 
     "place": "Golden Cliffs",
     "closestTown": "Golden, Colorado",
     "climbingId": 1,
-    "routes": mockRoutes
   },
   { 
     "place": "Hot Mess",
     "closestTown": "Denver, Colorado",
     "climbingId": 2,
-    "routes": [
-      { 
-        "climbingPlaceId": 2,
-        "area": "Brown Cloud Crags",
-        "routeName": "Louise",
-        "difficultyLevel": "5.7",
-        "type": ["top-rope"] 
-      }
+  }
+]
 
-    ]
+const mockPlacesWithRoutes = [
+  { 
+    "place": "Golden Cliffs",
+    "closestTown": "Golden, Colorado",
+    "climbingId": 1,
+    "routes": [mockRoute, mockRoute2]
+  },
+  { 
+    "place": "Hot Mess",
+    "closestTown": "Denver, Colorado",
+    "climbingId": 2,
+    "routes": [mockRoute3]
   }
 ]
 
@@ -59,6 +71,45 @@ describe("App", () => {
 	
   it("should match the snapshot with all data passed in", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe("mergeData Method", () => {
+    it("should return places with routes that match the place id", () => {
+      let result = wrapper.instance().mergeData(mockRoutes, mockPlaces);
+      expect(result).toEqual(mockPlacesWithRoutes);
+    });
+  });
+
+  describe("updateSearch Method", () => {
+    it("should update searchQuery state when invoked", () => {
+      expect(wrapper.state().searchQuery).toEqual('');
+      wrapper.instance().updateSearch('Golden');
+      expect(wrapper.state().searchQuery).toEqual('Golden');
+    });
+  });
+
+  describe("searchData Method", () => {
+    it("should filter combinedData by the search query", () => {
+      let expectedResult = [
+        { 
+          "place": "Golden Cliffs",
+          "closestTown": "Golden, Colorado",
+          "climbingId": 1,
+          "routes": [mockRoute, mockRoute2]
+        }
+      ];
+      wrapper.state().combinedData = mockPlacesWithRoutes;
+      wrapper.instance().updateSearch('Golden');
+      let result = wrapper.instance().searchData();
+      expect(result).toEqual(expectedResult);
+    });
+  });
+
+  describe("filterResult Method", () => {
+    it("should return places with routes that match the climbing id", () => {
+      let placesWithRoutes = wrapper.instance().filterResults(mockPlacesWithRoutes)
+      expect(placesWithRoutes).toEqual(mockPlacesWithRoutes)
+    });
   });
 
   describe("filterRoutes Method", () => {
