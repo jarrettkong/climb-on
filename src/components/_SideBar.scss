@@ -2,6 +2,7 @@
   grid-column-end: 2;
   grid-column-start: 1;
   height: 700px;
+  box-shadow: 0 0 3px rgba(33, 25, 25, 0.42);
 }
 
 .SideBar-filter-form {
@@ -15,11 +16,11 @@
   margin: 10px 0;
   border-radius: 5px;
   text-align: left;
-
+  
   & input {
     margin: 0 10px 0 0;
   }
-
+  
   & > div,
   & > select {
     margin: 10px 20px;
@@ -28,8 +29,18 @@
   }
 }
 
+.SideBar fieldset select {
+  height: 30px;
+}
+
 .SideBar-category-label {
   font-size: 20px;
+}
+
+.SideBar-filter-form {
+  text-align: center;
+  width: 246px;
+  margin: 30px 29px;
 }
 
 .Sidebar-form-submit-btn {
