@@ -1,7 +1,7 @@
 .Route {
-  /* border: 1px solid #d8d9db; */
   border-radius: 3px;
-  /* margin-right: 10px; */
+  border: 1px solid lightgrey;
+  padding: 10px;
   width: 100%;
   position: relative;
   margin-bottom: 15px;
@@ -17,18 +17,27 @@
 }
 
 .Route-info-container {
-  /* padding: 15px; */
   display: flex;
+  width: 80%;
   flex-direction: column;
   justify-content: space-around;
-  border-bottom: 1px solid #c1aeae59;
+  // ! help
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
+.Route-name {
+  margin: 0 0 5px 0; 
+  font-size: 20px;
+  color: #393939;
+}
 
-.Route-info-container > * {
-  font-size: 17px;
-  /* line-height: 25px; */
-  margin: 0 0 5px 25px;
+.Route-info-container h5 {
+  font-size: 15px;
+  // margin: 0 0 0 20px;
+  margin: 0;
+  color: grey;
 }
 
 section h6 span {
@@ -44,11 +53,15 @@ section h6 span {
 .Route-favorite-button {
   cursor: pointer;
   position: absolute;
-  font-size: 27px;
-  top: 3px;
-  right: 0;
+  font-size: 25px;
+  top: 10px;
+  right: 10px;
+  color: lightgrey;
+  &:hover {
+    color: #D93A45;
+  }
 }
 
 .favorited {
-  color: red;
+  color: #D93A45;
 }

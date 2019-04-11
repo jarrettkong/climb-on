@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Places should match the snapshot with all the data passed in 1`] = `
+<section
+  className="Places"
+  id="Places"
+>
+  <h2
+    className="Places-header"
+  >
+    Results
+  </h2>
+  <Sidebar
+    updateFilters={[MockFunction]}
+  />
+  <section
+    className="Places-container"
+  >
+    <Place
+      climbingId={1}
+      closestTown="Golden, Colorado"
+      key="0"
+      place="Golden Cliffs"
+      routes={
+        Array [
+          Object {
+            "area": "Brown Cloud Crags",
+            "climbingPlaceId": 1,
+            "difficultyLevel": "5.8",
+            "routeName": "Louise",
+            "type": Array [
+              "sport",
+            ],
+          },
+          Object {
+            "area": "Brown Cloud Crags",
+            "climbingPlaceId": 1,
+            "difficultyLevel": "5.7",
+            "routeName": "Thelma",
+            "type": Array [
+              "sport",
+            ],
+          },
+        ]
+      }
+    />
+    <Place
+      climbingId={1}
+      closestTown="Golden, Colorado"
+      key="1"
+      place="Golden Cliffs"
+      routes={
+        Array [
+          Object {
+            "area": "Brown Cloud Crags",
+            "climbingPlaceId": 1,
+            "difficultyLevel": "5.8",
+            "routeName": "Louise",
+            "type": Array [
+              "sport",
+            ],
+          },
+          Object {
+            "area": "Brown Cloud Crags",
+            "climbingPlaceId": 1,
+            "difficultyLevel": "5.7",
+            "routeName": "Thelma",
+            "type": Array [
+              "sport",
+            ],
+          },
+        ]
+      }
+    />
+  </section>
+</section>
+`;

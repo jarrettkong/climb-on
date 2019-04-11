@@ -30,6 +30,10 @@
   position: absolute;
   bottom: 25px;
   text-align: center;
+  border-radius: 100%;
+  animation-duration: 2s;
+  transform-origin: bottom;
+  animation-iteration-count: infinite;
   background: none;
   border: none;
   cursor: pointer;
@@ -41,8 +45,14 @@
 .App-down-arrow {
   font-size: 80px;
   color: orange;
-  transition: transform 1s;
-  &:hover {
-    transform: translate(0, -10px); 
-  }
+}
+
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }

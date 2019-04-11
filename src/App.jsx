@@ -130,8 +130,8 @@ class App extends Component {
     // ! Only works if the re-render is not run
     if(results.length > 0) {
       places = <Places places={results} updateFilters={this.updateFilters} />
-      downArrow = <a href="#Places" className="App-arrow-container">
-                    <i className="fas fa-chevron-down App-down-arrow bounce"></i>
+      downArrow = <a href="#Places" className="App-arrow-container bounce">
+                    <i className="fas fa-chevron-down App-down-arrow"></i>
                   </a>
     }
 
