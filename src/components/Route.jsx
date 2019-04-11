@@ -31,10 +31,9 @@ class Route extends Component {
     return (
       <section className="Route">
         <div className="Route-info-container">
-          <h4 className="Route-name">{routeName}</h4>
-          <h5 className="Route-area">Area: {area}</h5>
-          <h5 className="Route-difficulty">Difficulty: {difficultyLevel}</h5>
-          <h5 className="Route-type">Type: {type.join(', ')}</h5>
+        <h6 className="Route-area">Area: <span>{area}</span></h6>
+        <h6 className="Route-difficulty">Difficulty: <span>{difficultyLevel}</span></h6>
+        <h6 className="Route-type">Type: <span>{type.join(', ')}</span></h6>
         </div>
         <i className={"fas fa-heart Route-favorite-button" + (this.state.favorite ? ' favorited' : '')} onClick={this._handleFavoriteClick}></i>
       </section>
