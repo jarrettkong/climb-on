@@ -38,7 +38,7 @@ describe('SideBar', () => {
   })
   it('should call handleSelect on change', () => {
     wrapper.find('select').simulate('change', { target: { value: 'highest' } });
-    expect(wrapper.instance()._handleSelect).toBeCalled();
+    expect(mock_handleSelect).toBeCalled();
   })
 
   it('should update state with handleType when a type checkbox is clicked', () => {
