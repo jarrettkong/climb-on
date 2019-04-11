@@ -1,39 +1,38 @@
 .SideBar {
-  /* box-shadow: 0 0 1px lightgrey; */
   grid-column-end: 2;
   grid-column-start: 1;
   height: 700px;
-}
-
-.SideBar legend {
-  font-size: 20px;
-}
-
-.SideBar fieldset {
-  font-size: 17px;
-  border: 0;
-  padding: 0;
-  margin: 10px 0;
-  border-radius: 5px;
-  text-align: left;
-}
-
-.SideBar fieldset > div,
-.SideBar fieldset > select {
-  margin: 10px 20px;
-  display: flex;
-  align-items: center;
-}
-
-.SideBar fieldset input {
-  margin: 0 10px 0 0;
 }
 
 .SideBar-filter-form {
   text-align: center;
 }
 
-.SideBar input[type="submit"] {
+.Sidebar-category {
+  font-size: 17px;
+  border: 0;
+  padding: 0;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: left;
+
+  & input {
+    margin: 0 10px 0 0;
+  }
+
+  & > div,
+  & > select {
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.SideBar-category-label {
+  font-size: 20px;
+}
+
+.Sidebar-form-submit-btn {
   width: 50%;
   border: 0;
   background-color: orange;

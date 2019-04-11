@@ -50,15 +50,15 @@ class Sidebar extends Component {
     return (
       <aside className='SideBar module'>
         <form className="SideBar-filter-form" onSubmit={this._handleSubmit}>
-          <fieldset>
-            <legend>Sort:</legend>
+          <fieldset className="Sidebar-category">
+            <legend className="SideBar-category-label">Sort:</legend>
             <select id="sort" onChange={this._handleSelect}>
               <option value="lowest">Lowest to Highest</option>
               <option value="highest">Highest to Lowest</option>
             </select>
           </fieldset>
-          <fieldset>
-            <legend>Type:</legend>
+          <fieldset className="Sidebar-category">
+            <legend className="SideBar-category-label">Type:</legend>
             <div className="checkbox-container">
               <input type="checkbox" className="type-checkbox" id="sport" name="sport" onChange={this._handleType}/>
               <label htmlFor="sport">Sport</label>
@@ -72,8 +72,8 @@ class Sidebar extends Component {
               <label htmlFor="trad">Trad</label>
             </div>
           </fieldset>
-          <fieldset>
-            <legend>Difficulty:</legend>
+          <fieldset className="Sidebar-category">
+            <legend className="SideBar-category-label">Difficulty:</legend>
             <div className="checkbox-container">
               <input type="checkbox" className="difficulty-checkbox" id="5.13" name="5.13" onChange={this._handleDifficulty}/>
               <label htmlFor="5.13">5.13</label>
