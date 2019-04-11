@@ -4,7 +4,7 @@
   padding: 10px;
   position: relative;
   width: 100%;
-  margin-bottom: 15px;
+  text-transform: capitalize;
   &:last-child {
     margin-bottom: 0;
   }
@@ -31,20 +31,14 @@
   margin: 0 0 5px 0; 
 }
 
-.Route-info-container h5 {
+.Route-info-container h6 {
   color: grey;
   font-size: 15px;
   margin: 0;
 }
 
 section h6 span {
-  font-size: 16px;
   font-weight: 500;
-}
-
-.Route-type {
-  text-transform: capitalize;
-  padding-bottom: 11px;
 }
 
 .Route-favorite-button {

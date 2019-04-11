@@ -53,8 +53,8 @@ class Sidebar extends Component {
           <fieldset className="Sidebar-category">
             <legend className="SideBar-category-label">Sort:</legend>
             <select id="sort" onChange={this._handleSelect}>
-              <option value="lowest">Lowest to Highest</option>
-              <option value="highest">Highest to Lowest</option>
+              <option value="lowest">Easy to Hard</option>
+              <option value="highest">Hard to Easy</option>
             </select>
           </fieldset>
           <fieldset className="Sidebar-category">
