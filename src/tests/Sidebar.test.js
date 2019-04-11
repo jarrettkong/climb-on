@@ -6,6 +6,9 @@ describe('SideBar', () => {
   let wrapper;
 
   const mock_updateFilters = jest.fn()
+  const mock_handleType = jest.fn()
+  const mock_handleDifficulty = jest.fn()
+  const mock_handleSelect = jest.fn()
 
   beforeEach(() => {
     wrapper = shallow(
@@ -24,6 +27,19 @@ describe('SideBar', () => {
       sortOrder: true
     } });
   });
+
+  it('should call handleType on change', () => {
+    wrapper.find('.type-checkbox').first().simulate('change', { target: { checked: true } });
+    expect(mock_handleType).toBeCalled();
+  })
+  it('should call handleDifficulty on change', () => {
+    wrapper.find('.difficulty-checkbox').first().simulate('change', { target: { checked: true } });
+    expect(mock_handleDifficulty).toBeCalled();
+  })
+  it('should call handleSelect on change', () => {
+    wrapper.find('select').simulate('change', { target: { value: 'highest' } });
+    expect(wrapper.instance()._handleSelect).toBeCalled();
+  })
 
   it('should update state with handleType when a type checkbox is clicked', () => {
     expect(wrapper.state()).toEqual({ filters: {

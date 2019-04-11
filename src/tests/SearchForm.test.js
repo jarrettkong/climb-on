@@ -23,7 +23,7 @@ describe('SearchForm', () => {
 
   it('should update the state of inputValue on change', () => {
     expect(wrapper.state()).toEqual({ inputValue: '' })
-    wrapper.instance()._handleChange({ target: {value: 'new value' }});
+    wrapper.instance()._handleChange({ target: { value: 'new value' }});
     expect(wrapper.state()).toEqual({ inputValue: 'new value' })
   });
 
