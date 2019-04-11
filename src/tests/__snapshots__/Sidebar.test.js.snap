@@ -8,8 +8,12 @@ exports[`SideBar should match the snapshot with all the data passed in 1`] = `
     className="SideBar-filter-form"
     onSubmit={[Function]}
   >
-    <fieldset>
-      <legend>
+    <fieldset
+      className="Sidebar-category"
+    >
+      <legend
+        className="SideBar-category-label"
+      >
         Sort:
       </legend>
       <select
@@ -19,17 +23,21 @@ exports[`SideBar should match the snapshot with all the data passed in 1`] = `
         <option
           value="lowest"
         >
-          Lowest to Highest
+          Easy to Hard
         </option>
         <option
           value="highest"
         >
-          Highest to Lowest
+          Hard to Easy
         </option>
       </select>
     </fieldset>
-    <fieldset>
-      <legend>
+    <fieldset
+      className="Sidebar-category"
+    >
+      <legend
+        className="SideBar-category-label"
+      >
         Type:
       </legend>
       <div
@@ -81,8 +89,12 @@ exports[`SideBar should match the snapshot with all the data passed in 1`] = `
         </label>
       </div>
     </fieldset>
-    <fieldset>
-      <legend>
+    <fieldset
+      className="Sidebar-category"
+    >
+      <legend
+        className="SideBar-category-label"
+      >
         Difficulty:
       </legend>
       <div

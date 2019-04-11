@@ -4,14 +4,14 @@ exports[`Route should render correctly with all of the information passed 1`] = 
 <section
   className="Route"
 >
+  <h4
+    class="Route-name"
+  >
+    Louise
+  </h4>
   <div
     className="Route-info-container"
   >
-    <h4
-      className="Route-name"
-    >
-      Louise
-    </h4>
     <h6
       className="Route-area"
     >
