@@ -1,7 +1,8 @@
 .SideBar {
   grid-column-end: 2;
   grid-column-start: 1;
-  height: 700px;
+  height: 740px;
+  box-shadow: 0 0 3px rgba(33, 25, 25, 0.42);
 }
 
 .SideBar-filter-form {
@@ -28,6 +29,12 @@
   }
 }
 
+.SideBar fieldset select {
+  height: 30px;
+  width: 173px;
+  box-shadow: 1px 0px #888888;
+}
+
 .SideBar-category-label {
   font-size: 20px;
 }
@@ -45,6 +52,7 @@
   width: 50%;
   &:hover {
     width: 55%;
+    background-color: #4e3a1b;
   }
   &:focus {
     outline: transparent;
